@@ -331,7 +331,7 @@ export default function Home() {
           whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
           viewport={{ once: true, margin: "-200px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute inset-0 z-0 opacity-40 bg-[url('/images/hero-banner.png')] bg-cover bg-center mix-blend-overlay"
+          className="absolute inset-0 z-0 opacity-40 bg-[url('/Artha-redisgn/images/hero-banner.png')] bg-cover bg-center mix-blend-overlay"
         />
 
         <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-primary-500/30 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none z-0" />
