@@ -30,16 +30,7 @@
     --border: #e2e8f0;
   }
 
-  .dark {
-    --background: #020617;
-    /* Slate 950 */
-    --foreground: #f8fafc;
-    /* Slate 50 */
-    --surface: #0f172a;
-    /* Slate 900 */
-    --border: #1e293b;
-    /* Slate 800 */
-  }
+
 
   body {
     background-color: var(--background);
@@ -70,7 +61,5 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-700;
   }
 
-  .dark .text-gradient {
-    @apply bg-gradient-to-r from-primary-400 to-primary-600;
-  }
+
 }

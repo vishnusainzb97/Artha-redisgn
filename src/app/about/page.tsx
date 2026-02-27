@@ -8,6 +8,7 @@ export default function About() {
         { n: "300+", l: "Projects Delivered" },
         { n: "330+", l: "Expert Engineers" },
         { n: "26", l: "Countries Served" },
+        { n: "93%", l: "Customer Retention" },
         { n: "5", l: "Global Offices" }
     ]
 
@@ -38,11 +39,11 @@ export default function About() {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 lg:p-8 bg-surface rounded-[2rem] border border-border shadow-2xl shadow-primary-600/5 mb-32"
+                    className="grid grid-cols-2 md:grid-cols-5 gap-4 p-4 lg:p-8 bg-surface rounded-[2rem] border border-border shadow-2xl shadow-primary-600/5 mb-32"
                 >
                     {stats.map((stat, i) => (
-                        <div key={i} className={`p-6 text-center ${i !== 3 ? 'md:border-r border-border' : ''}`}>
-                            <h3 className="text-5xl font-heading font-black text-primary-600 mb-2">{stat.n}</h3>
+                        <div key={i} className={`p-6 text-center ${i !== 4 ? 'md:border-r border-border' : ''}`}>
+                            <h3 className="text-4xl lg:text-5xl font-heading font-black text-primary-600 mb-2">{stat.n}</h3>
                             <p className="text-sm uppercase tracking-widest font-bold text-foreground/50">{stat.l}</p>
                         </div>
                     ))}

@@ -24,7 +24,7 @@ export default function Solutions() {
     ]
 
     return (
-        <div className="pt-32 pb-24 min-h-screen bg-slate-50 dark:bg-slate-900/50">
+        <div className="pt-32 pb-24 min-h-screen bg-slate-50">
             <div className="container mx-auto px-6">
 
                 <div className="text-center max-w-3xl mx-auto mb-24">

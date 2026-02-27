@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
-const plusJakartaSans = Plus_Jakarta_Sans({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-heading",
+  variable: "--font-jakarta",
   weight: ["400", "500", "600", "700", "800"]
 });
 
 export const metadata: Metadata = {
   title: "Artha Solutions | Quality, Integrity & Trust",
-  description: "A premier business and technology consulting firm empowering businesses with insightful innovations.",
+  description: "Artha Solutions delivers enterprise data management, data governance, SAP data migration, and MDM services.",
 };
 
 export default function RootLayout({
@@ -22,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={`${inter.variable} ${plusJakartaSans.variable} flex flex-col min-h-screen bg-background text-foreground`}>
+    <html lang="en" className={`${jakarta.variable} scroll-smooth`}>
+      <body className="font-sans antialiased text-foreground bg-background min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">
           {children}

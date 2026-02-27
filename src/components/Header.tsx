@@ -5,11 +5,13 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, Menu, X, Search, Moon, Sun, ArrowRight } from "lucide-react"
+import { Menu, X, Search, ChevronDown } from "lucide-react"
+import SearchModal from "./SearchModal"
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false)
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const [isSearchOpen, setIsSearchOpen] = useState(false)
     const pathname = usePathname()
 
     useEffect(() => {
@@ -18,9 +20,7 @@ export default function Header() {
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
-    const toggleTheme = () => {
-        document.documentElement.classList.toggle("dark")
-    }
+
 
     const navLinks = [
         { name: "Home", href: "/" },
@@ -38,9 +38,9 @@ export default function Header() {
                     <Image
                         src="/images/logo-artha-solutions.png"
                         alt="Artha Solutions Logo"
-                        width={180}
-                        height={50}
-                        className="h-10 w-auto object-contain dark:brightness-[5] dark:contrast-[0.8] hover:opacity-80 transition-opacity"
+                        width={250}
+                        height={80}
+                        className="h-12 w-auto object-contain hover:opacity-80 transition-opacity"
                         priority
                     />
                 </Link>
@@ -59,26 +59,27 @@ export default function Header() {
                 </nav>
 
                 <div className="flex items-center gap-4">
-                    <button className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface transition-colors" aria-label="Search">
+                    <button
+                        className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface transition-colors"
+                        aria-label="Search"
+                        onClick={() => setIsSearchOpen(true)}
+                    >
                         <Search className="w-5 h-5 text-foreground/80" />
                     </button>
-                    <button onClick={toggleTheme} className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface transition-colors hidden sm:flex" aria-label="Toggle Theme">
-                        <Sun className="w-5 h-5 text-foreground/80 hidden dark:block" />
-                        <Moon className="w-5 h-5 text-foreground/80 block dark:hidden" />
-                    </button>
+
                     <Link href="/contact" className="hidden sm:inline-flex items-center justify-center h-10 px-6 rounded-full bg-primary-600 text-white font-medium text-sm hover:bg-primary-700 transition-colors shadow-lg hover:shadow-primary-600/30">
                         Get in Touch
                     </Link>
 
-                    <button className="lg:hidden p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                        {mobileMenuOpen ? <X /> : <Menu />}
+                    <button className="lg:hidden p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                        {isMobileMenuOpen ? <X /> : <Menu />}
                     </button>
                 </div>
             </div>
 
             {/* Mobile Menu */}
             <AnimatePresence>
-                {mobileMenuOpen && (
+                {isMobileMenuOpen && (
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -90,19 +91,24 @@ export default function Header() {
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    onClick={() => setMobileMenuOpen(false)}
+                                    onClick={() => setIsMobileMenuOpen(false)}
                                     className={`text-lg font-medium p-2 rounded-lg ${pathname === link.href ? "text-primary-600 bg-primary-600/10" : "text-foreground/80"}`}
                                 >
                                     {link.name}
                                 </Link>
                             ))}
-                            <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="mt-4 flex items-center justify-center h-12 rounded-xl bg-primary-600 text-white font-medium w-full">
+                            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="mt-4 flex items-center justify-center h-12 rounded-xl bg-primary-600 text-white font-medium w-full">
                                 Get in Touch
                             </Link>
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            <SearchModal
+                isOpen={isSearchOpen}
+                onClose={() => setIsSearchOpen(false)}
+            />
         </header>
     )
 }
