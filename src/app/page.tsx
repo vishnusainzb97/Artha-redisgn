@@ -107,6 +107,23 @@ export default function Home() {
         <ClientMarquee />
       </section>
 
+      {/* PARTNER CERTIFICATIONS */}
+      <section className="py-24 border-b border-border bg-surface/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Certified Excellence</h2>
+            <p className="text-foreground/70 max-w-2xl mx-auto">Our deep technical expertise is recognized directly by the world's leading data, cloud, and AI platforms.</p>
+          </div>
+
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-80 hover:opacity-100 transition-opacity">
+            <Image src="/images/badges/aws-partner.svg" alt="AWS Partner" width={140} height={140} className="h-20 md:h-28 w-auto object-contain drop-shadow-sm" />
+            <Image src="/images/badges/azure-partner.svg" alt="Microsoft Azure Partner" width={140} height={140} className="h-20 md:h-28 w-auto object-contain drop-shadow-sm" />
+            <Image src="/images/badges/qlik-elite.svg" alt="Qlik Elite Partner" width={140} height={140} className="h-20 md:h-28 w-auto object-contain drop-shadow-sm" />
+            <Image src="/images/badges/talend-expert.svg" alt="Talend Expert Partner" width={140} height={140} className="h-20 md:h-28 w-auto object-contain drop-shadow-sm" />
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section className="py-32 bg-background relative">
         <div className="container mx-auto px-6">

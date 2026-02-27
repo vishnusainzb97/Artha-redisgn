@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown, Menu, X, Search, Moon, Sun, ArrowRight } from "lucide-react"
@@ -33,9 +34,15 @@ export default function Header() {
     return (
         <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? "glass shadow-sm py-4" : "bg-transparent py-6"}`}>
             <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-3 group">
-                    <div className="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center text-white font-heading font-extrabold text-xl shadow-lg group-hover:shadow-primary-600/50 transition-shadow">A</div>
-                    <span className="font-heading font-bold text-xl tracking-tight hidden sm:block">Artha Solutions</span>
+                <Link href="/" className="flex items-center group">
+                    <Image
+                        src="/images/logo-artha-solutions.png"
+                        alt="Artha Solutions Logo"
+                        width={180}
+                        height={50}
+                        className="h-10 w-auto object-contain dark:invert hover:opacity-80 transition-opacity"
+                        priority
+                    />
                 </Link>
 
                 {/* Desktop Nav */}

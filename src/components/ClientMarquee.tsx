@@ -2,22 +2,23 @@
 
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export default function ClientMarquee() {
     const [isMounted, setIsMounted] = useState(false)
 
-    // Real industry leading company logos via SVG textual representation for absolute premium look without external image dependencies
+    // Real industry leading company logos downloaded from the original site
     const clients = [
-        { name: "Google", color: "#4285F4" },
-        { name: "Microsoft", color: "#00A4EF" },
-        { name: "Amazon", color: "#FF9900" },
-        { name: "IBM", color: "#0530AD" },
-        { name: "Oracle", color: "#F80000" },
-        { name: "SAP", color: "#008FD3" },
-        { name: "TCS", color: "#E31837" },
-        { name: "Dell", color: "#007DB8" },
-        { name: "Infosys", color: "#007CC3" },
-        { name: "Wipro", color: "#173B6C" },
+        { name: "Alation", src: "/images/partners/alation.svg" },
+        { name: "AWS", src: "/images/partners/aws.svg" },
+        { name: "Azure", src: "/images/partners/azure.svg" },
+        { name: "Snowflake", src: "/images/partners/snowflake.svg" },
+        { name: "Talend", src: "/images/partners/talend.svg" },
+        { name: "Qlik", src: "/images/partners/qlik.svg" },
+        { name: "Databricks", src: "/images/partners/databricks.png" },
+        { name: "MHA", src: "/images/clients/mha.svg" },
+        { name: "CCA", src: "/images/clients/cca.png" },
+        { name: "HIL", src: "/images/clients/hil.png" }
     ]
 
     // Render twice for seamless looping
@@ -51,11 +52,15 @@ export default function ClientMarquee() {
                     {repeatedClients.map((client, idx) => (
                         <div
                             key={`${client.name}-${idx}`}
-                            className="flex items-center justify-center opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer"
+                            className="flex items-center justify-center opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer min-w-[150px] max-w-[200px]"
                         >
-                            <span className="font-heading font-black text-3xl tracking-tighter" style={{ color: client.color }}>
-                                {client.name}
-                            </span>
+                            <Image
+                                src={client.src}
+                                alt={`${client.name} logo`}
+                                width={180}
+                                height={80}
+                                className="object-contain h-14 w-auto dark:brightness-200 dark:contrast-200 pointer-events-none"
+                            />
                         </div>
                     ))}
                 </motion.div>
