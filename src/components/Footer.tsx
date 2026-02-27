@@ -10,7 +10,7 @@ export default function Footer() {
                     <div className="space-y-6">
                         <Link href="/" className="inline-block">
                             <Image
-                                src="/images/logo-artha-solutions.png"
+                                src="/Artha-redisgn/images/logo-artha-solutions.png"
                                 alt="Artha Solutions Logo"
                                 width={250}
                                 height={80}

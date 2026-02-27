@@ -36,7 +36,7 @@ export default function Header() {
             <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
                 <Link href="/" className="flex items-center group">
                     <Image
-                        src="/images/logo-artha-solutions.png"
+                        src="/Artha-redisgn/images/logo-artha-solutions.png"
                         alt="Artha Solutions Logo"
                         width={250}
                         height={80}
