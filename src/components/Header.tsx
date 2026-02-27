@@ -40,7 +40,7 @@ export default function Header() {
                         alt="Artha Solutions Logo"
                         width={180}
                         height={50}
-                        className="h-10 w-auto object-contain dark:invert hover:opacity-80 transition-opacity"
+                        className="h-10 w-auto object-contain dark:brightness-[5] dark:contrast-[0.8] hover:opacity-80 transition-opacity"
                         priority
                     />
                 </Link>

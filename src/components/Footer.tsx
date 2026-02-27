@@ -14,7 +14,7 @@ export default function Footer() {
                                 alt="Artha Solutions Logo"
                                 width={180}
                                 height={50}
-                                className="h-10 w-auto object-contain dark:invert hover:opacity-80 transition-opacity"
+                                className="h-10 w-auto object-contain dark:brightness-[5] dark:contrast-[0.8] hover:opacity-80 transition-opacity"
                             />
                         </Link>
                         <p className="text-foreground/70 text-sm leading-relaxed max-w-xs">

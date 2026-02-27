@@ -51,21 +51,13 @@ export default function Home() {
         <div className="container mx-auto px-6 relative z-10 text-center">
           <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl mx-auto flex flex-col items-center">
 
-            <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary-500/30 text-primary-600 font-semibold text-sm mb-8 shadow-glow backdrop-blur-xl">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-primary-500"></span>
-              </span>
-              Artha Advantage: The Evolution of Enterprise Data
-            </motion.div>
-
-            <motion.h1 variants={fadeIn} className="text-6xl lg:text-8xl font-heading font-extrabold tracking-tighter mb-8 leading-[1.1] text-foreground">
-              Turn Your Vision Into <br />
-              <span className="text-gradient inline-block pb-2">Measurable Value</span>
+            <motion.h1 variants={fadeIn} className="text-5xl lg:text-7xl font-heading font-extrabold tracking-tighter mb-8 leading-[1.1] text-foreground">
+              Data Solutions That Drive <br />
+              <span className="text-gradient inline-block pb-2">Real Business Impact</span>
             </motion.h1>
 
-            <motion.p variants={fadeIn} className="text-xl lg:text-2xl text-foreground/70 mb-12 max-w-3xl leading-relaxed tracking-tight">
-              Accelerate your digital transformation with our premium data integration, quality, and governance solutions designed for modern enterprises.
+            <motion.p variants={fadeIn} className="text-lg lg:text-xl text-foreground/60 mb-12 max-w-2xl leading-relaxed">
+              We help enterprises integrate, govern, and transform their data — so you can make better decisions, faster.
             </motion.p>
 
             <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-6 items-center justify-center">
