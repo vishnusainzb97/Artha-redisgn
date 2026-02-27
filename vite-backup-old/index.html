@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artha Solutions | Enterprise Data Management, AI & Digital Transformation</title>
+  <meta name="description"
+    content="Artha Solutions is a leading enterprise data management company providing IT solutions in data management, data governance, master data management, cloud services, SAP migration, and AI." />
+</head>
+
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo">
+        <svg class="header__logo-img" width="36" height="36" viewBox="0 0 36 36">
+          <rect width="36" height="36" rx="8" fill="#E8792B" /><text x="18" y="26"
+            font-family="Space Grotesk,sans-serif" font-weight="800" font-size="22" fill="white"
+            text-anchor="middle">A</text>
+        </svg>
+        <span>Artha Solutions</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <div class="nav__item"><a href="/" class="nav__link active">Home</a></div>
+        <div class="nav__item">
+          <button class="nav__link" aria-expanded="false">Artha Advantage <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg></button>
+          <div class="nav__dropdown">
+            <a href="/artha-advantage.html#accelerators" class="nav__dropdown-link">Accelerators<small>Streamline data
+                management & integration</small></a>
+            <a href="/artha-advantage.html#data-insights" class="nav__dropdown-link">Data Insights
+              Platform<small>AI-driven Data Governance</small></a>
+            <a href="/artha-advantage.html#mdm-lite" class="nav__dropdown-link">MDM Lite<small>Centralize critical
+                master data</small></a>
+            <a href="/artha-advantage.html#customer-360" class="nav__dropdown-link">Customer 360<small>Unified data for
+                actionable insights</small></a>
+            <a href="/artha-advantage.html#etl-migration" class="nav__dropdown-link">B'etl – ETL
+              Migrator<small>Accelerate ETL migration to Talend</small></a>
+            <a href="/artha-advantage.html#digital" class="nav__dropdown-link">Digital Transformation<small>Leverage
+                digital for efficiency & growth</small></a>
+          </div>
+        </div>
+        <div class="nav__item">
+          <button class="nav__link" aria-expanded="false">Solutions <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg></button>
+          <div class="nav__dropdown">
+            <a href="/solutions.html#data-solutions" class="nav__dropdown-link">Data Solutions<small>Strategy, MDM,
+                governance & analytics</small></a>
+            <a href="/solutions.html#ai" class="nav__dropdown-link">Artificial Intelligence<small>AI readiness,
+                automation & insights</small></a>
+            <a href="/solutions.html#sap" class="nav__dropdown-link">SAP Solutions<small>S/4HANA migration & data
+                cleansing</small></a>
+            <a href="/solutions.html#cloud" class="nav__dropdown-link">Cloud & Managed Services<small>24/7 enterprise
+                support</small></a>
+          </div>
+        </div>
+        <div class="nav__item"><a href="/industries.html" class="nav__link">Industries</a></div>
+        <div class="nav__item">
+          <button class="nav__link" aria-expanded="false">Resources <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg></button>
+          <div class="nav__dropdown">
+            <a href="/resources.html#events" class="nav__dropdown-link">Events<small>Upcoming events and
+                conferences</small></a>
+            <a href="/resources.html#webinars" class="nav__dropdown-link">Webinars<small>Interactive online
+                discussions</small></a>
+            <a href="/resources.html#blogs" class="nav__dropdown-link">Blogs<small>Latest industry hot
+                topics</small></a>
+            <a href="/resources.html#whitepapers" class="nav__dropdown-link">White Papers<small>Expert research &
+                insights</small></a>
+            <a href="/resources.html#case-studies" class="nav__dropdown-link">Case Studies<small>Customer success
+                stories</small></a>
+          </div>
+        </div>
+        <div class="nav__item"><a href="/about.html" class="nav__link">About Us</a></div>
+      </nav>
+
+      <div class="header__actions">
+        <button class="search-btn" id="searchBtn" aria-label="Search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+        <a href="/contact.html" class="btn btn--primary btn--sm">Get in Touch</a>
+        <button class="mobile-toggle" id="mobileToggle"
+          aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ SEARCH MODAL ═══ -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-modal__inner">
+      <input class="search-modal__input" id="searchInput" type="text"
+        placeholder="Search Artha Solutions... (Esc to close)" autocomplete="off" />
+      <div class="search-modal__results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="hero">
+    <div class="hero__bg" style="background-image:url('/images/hero-banner.png');"></div>
+    <div class="container">
+      <div class="hero__content reveal">
+        <div class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          Enterprise Data Excellence
+        </div>
+        <h1 class="hero__title">
+          Think Data,<br />
+          <span class="hero__title-accent">Think Artha</span>
+        </h1>
+        <p class="hero__description">
+          Strategy — Implementation — Support. Turning Vision into Value by Empowering Businesses with Data Excellence.
+          Unlock AI success with quality data, seamless integration, and secure compliance.
+        </p>
+        <div class="hero__actions">
+          <a href="/solutions.html" class="btn btn--primary btn--lg">Explore Solutions →</a>
+          <a href="/contact.html" class="btn btn--outline-white btn--lg">Get in Touch</a>
+        </div>
+        <div class="hero__stats">
+          <div>
+            <div class="hero__stat-number">300+</div>
+            <div class="hero__stat-label">Projects Delivered</div>
+          </div>
+          <div>
+            <div class="hero__stat-number">330+</div>
+            <div class="hero__stat-label">Expert Engineers</div>
+          </div>
+          <div>
+            <div class="hero__stat-number">26</div>
+            <div class="hero__stat-label">Countries Served</div>
+          </div>
+          <div>
+            <div class="hero__stat-number">12+</div>
+            <div class="hero__stat-label">Years with Qlik & Talend</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CLIENTS MARQUEE ═══ -->
+  <section class="section" style="padding:var(--space-12) 0;">
+    <div class="container">
+      <div class="section__header reveal" style="margin-bottom:var(--space-8);">
+        <span class="section__label">Trusted Worldwide</span>
+        <h2 class="section__title" style="font-size:var(--text-2xl);">300+ Clients Across 26 Countries</h2>
+      </div>
+    </div>
+    <div class="clients-marquee">
+      <div class="clients-track">
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+            alt="Google" /></div>
+        <div class="client-logo"><img
+            src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" />
+        </div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+            alt="Amazon" /></div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg"
+            alt="IBM" /></div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/Oracle_Corporation_logo.svg"
+            alt="Oracle" /></div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg"
+            alt="SAP" /></div>
+        <div class="client-logo"><img
+            src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Tata_Consultancy_Services_Logo.svg" alt="TCS" />
+        </div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Dell_logo_2016.svg"
+            alt="Dell" /></div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Infosys_logo.svg"
+            alt="Infosys" /></div>
+        <div class="client-logo"><img
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_Light.svg" alt="Wipro" />
+        </div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Deloitte.svg"
+            alt="Deloitte" /></div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Cisco_logo_blue_2016.svg"
+            alt="Cisco" /></div>
+        <!-- Duplicate for seamless loop -->
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+            alt="Google" /></div>
+        <div class="client-logo"><img
+            src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" />
+        </div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+            alt="Amazon" /></div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg"
+            alt="IBM" /></div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/Oracle_Corporation_logo.svg"
+            alt="Oracle" /></div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg"
+            alt="SAP" /></div>
+        <div class="client-logo"><img
+            src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Tata_Consultancy_Services_Logo.svg" alt="TCS" />
+        </div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Dell_logo_2016.svg"
+            alt="Dell" /></div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Infosys_logo.svg"
+            alt="Infosys" /></div>
+        <div class="client-logo"><img
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_Light.svg" alt="Wipro" />
+        </div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Deloitte.svg"
+            alt="Deloitte" /></div>
+        <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Cisco_logo_blue_2016.svg"
+            alt="Cisco" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES & SOLUTIONS ═══ -->
+  <section class="section section--alt" id="services">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label">What We Do</span>
+        <h2 class="section__title">Our Services & Solutions</h2>
+        <p class="section__subtitle">Analyze, Automate, & Accelerate — comprehensive data solutions for data-driven
+          organizations.</p>
+      </div>
+
+      <div class="grid grid--3 reveal">
+        <div class="service-card">
+          <div class="service-card__image"><img src="/images/icon-ai.png" alt="Artificial Intelligence" /></div>
+          <div class="service-card__body">
+            <h3 class="service-card__title">Artificial Intelligence</h3>
+            <p class="service-card__text">Unlock AI Success with Quality Data, Seamless Integration, and Secure
+              Compliance. Turn AI from pilot to production.</p>
+            <div class="service-card__features">
+              <div class="service-card__feature">Data Readiness for AI</div>
+              <div class="service-card__feature">AI-Driven Insights & Decisions</div>
+              <div class="service-card__feature">Workflow Automation</div>
+            </div>
+            <a href="/solutions.html#ai" class="service-card__link">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__image"><img src="/images/icon-data.png" alt="Data Solutions" /></div>
+          <div class="service-card__body">
+            <h3 class="service-card__title">Data Solutions</h3>
+            <p class="service-card__text">Build scalable data architectures, ensure trusted governance, and enhance data
+              literacy for confident decisions.</p>
+            <div class="service-card__features">
+              <div class="service-card__feature">Data Strategy & MDM</div>
+              <div class="service-card__feature">Data Governance & Quality</div>
+              <div class="service-card__feature">Analytics & Big Data</div>
+            </div>
+            <a href="/solutions.html#data-solutions" class="service-card__link">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__image"><img src="/images/icon-sap.png" alt="SAP Solutions" /></div>
+          <div class="service-card__body">
+            <h3 class="service-card__title">SAP Data Solutions</h3>
+            <p class="service-card__text">Seamless Data Cleansing for S/4HANA Migration Success. Advanced data matching,
+              test data management.</p>
+            <div class="service-card__features">
+              <div class="service-card__feature">Clean Data for SAP Migration</div>
+              <div class="service-card__feature">Advanced Data Matching</div>
+              <div class="service-card__feature">Test Data Management</div>
+            </div>
+            <a href="/solutions.html#sap" class="service-card__link">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__image"><img src="/images/icon-governance.png" alt="Data Governance" /></div>
+          <div class="service-card__body">
+            <h3 class="service-card__title">Data Governance</h3>
+            <p class="service-card__text">Redefining Data Governance — ensures accurate, reliable data for better
+              decisions and full compliance.</p>
+            <div class="service-card__features">
+              <div class="service-card__feature">GDPR, CCPA & HIPAA Compliance</div>
+              <div class="service-card__feature">Data Privacy & Security</div>
+              <div class="service-card__feature">AI/GenAI-Ready Data Quality</div>
+            </div>
+            <a href="/solutions.html#governance" class="service-card__link">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__image"><img src="/images/icon-cloud.png" alt="Cloud Services" /></div>
+          <div class="service-card__body">
+            <h3 class="service-card__title">Cloud & Managed Services</h3>
+            <p class="service-card__text">End-to-end enterprise data management, cloud services, and real-time analytics
+              for peace of mind.</p>
+            <div class="service-card__features">
+              <div class="service-card__feature">AWS, Azure & Snowflake</div>
+              <div class="service-card__feature">24/7 Managed Services</div>
+              <div class="service-card__feature">Enterprise Applications</div>
+            </div>
+            <a href="/solutions.html#cloud" class="service-card__link">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__image"
+            style="background:var(--gradient-primary);display:flex;align-items:center;justify-content:center;">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <rect x="10" y="10" width="60" height="60" rx="12" stroke="rgba(232,121,43,0.4)" stroke-width="2" />
+              <circle cx="40" cy="35" r="12" stroke="#E8792B" stroke-width="2" />
+              <path d="M20 60 Q40 45 60 60" stroke="#E8792B" stroke-width="2" fill="none" />
+              <circle cx="25" cy="25" r="3" fill="rgba(232,121,43,0.3)" />
+              <circle cx="55" cy="20" r="2" fill="rgba(232,121,43,0.3)" />
+            </svg>
+          </div>
+          <div class="service-card__body">
+            <h3 class="service-card__title">Artha Advantage</h3>
+            <p class="service-card__text">Combines data integration, quality, and governance in a single turnkey
+              solution for any data source.</p>
+            <div class="service-card__features">
+              <div class="service-card__feature">80% data reliability</div>
+              <div class="service-card__feature">90% migration automation</div>
+              <div class="service-card__feature">40% faster MDM implementation</div>
+            </div>
+            <a href="/artha-advantage.html" class="service-card__link">Learn More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label">Client Voices</span>
+        <h2 class="section__title">Listen to Our Clients</h2>
+        <p class="section__subtitle">Trusted by industry leaders worldwide for data transformation excellence.</p>
+      </div>
+
+      <div class="grid grid--3 reveal">
+        <div class="testimonial-card reveal reveal--delay-1">
+          <div class="testimonial-card__quote">"</div>
+          <p class="testimonial-card__text">We are very happy that we worked with Artha Solutions on our Upgrade
+            project. Right from the 1st initial communication till delivery, the communication was right on point. I
+            would recommend them for upcoming or any projects.</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">VM</div>
+            <div>
+              <div class="testimonial-card__name">Vivek Makan</div>
+              <div class="testimonial-card__role">Director, Data & Analytics</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal--delay-2">
+          <div class="testimonial-card__quote">"</div>
+          <p class="testimonial-card__text">My team and I have been working with Artha for nearly four years, and our
+            experience has been nothing short of exceptional. They have continually demonstrated their value as a
+            trusted and strategic partner.</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">D</div>
+            <div>
+              <div class="testimonial-card__name">Director</div>
+              <div class="testimonial-card__role">Commonwealth Care Alliance</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal--delay-3">
+          <div class="testimonial-card__quote">"</div>
+          <p class="testimonial-card__text">Artha Solutions has transformed our organization by revolutionizing data
+            management with innovative solutions, exceptional expertise, and a steadfast commitment to excellence.</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">GP</div>
+            <div>
+              <div class="testimonial-card__name">Gopichand Padikala</div>
+              <div class="testimonial-card__role">Head of Digital & Analytics</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PARTNERS ═══ -->
+  <section class="section section--alt" id="partners">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label">Our Partners</span>
+        <h2 class="section__title">Trusted Technology Partners</h2>
+      </div>
+      <div class="partners-grid reveal">
+        <div class="partner-logo"><span>Talend</span></div>
+        <div class="partner-logo"><span>Qlik</span></div>
+        <div class="partner-logo"><span>AWS</span></div>
+        <div class="partner-logo"><span>Azure</span></div>
+        <div class="partner-logo"><span>Alation</span></div>
+        <div class="partner-logo"><span>Snowflake</span></div>
+        <div class="partner-logo"><span>Data Sentinel</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AWARDS ═══ -->
+  <section class="section" id="awards">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label">Recognition</span>
+        <h2 class="section__title">Awards & Recognitions</h2>
+      </div>
+      <div style="max-width:700px;margin:0 auto;" class="reveal">
+        <div class="timeline">
+          <div class="timeline__item">
+            <div class="timeline__year">2024</div>
+            <div class="timeline__text">Qlik North America Customer Success Champion 2024</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__year">2023</div>
+            <div class="timeline__text">Qlik Best Enabled Partner of the Year 2023</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__year">2022</div>
+            <div class="timeline__text">Talend Partner of the Year – NorAm</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__year">2021</div>
+            <div class="timeline__text">Americas Partner of the Year by Talend</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__year">2020</div>
+            <div class="timeline__text">Talend Partner of the Year – System Integrator</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__year">2019</div>
+            <div class="timeline__text">Global Award – Channel Partner Supporting Talend Core Values</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__year">2018</div>
+            <div class="timeline__text">MDM Award at Talend Global Partner Awards</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA BANNER ═══ -->
+  <section class="section" style="padding-bottom:var(--space-24);">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2 class="cta-banner__title">Ready to Transform Your Data Strategy?</h2>
+        <p class="cta-banner__text">Join 300+ clients worldwide who have embraced digital transformation with our
+          expertise.</p>
+        <a href="/contact.html" class="btn btn--primary btn--lg">Get in Touch →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="header__logo" style="margin-bottom:var(--space-2);">
+            <svg width="32" height="32" viewBox="0 0 36 36">
+              <rect width="36" height="36" rx="8" fill="#E8792B" /><text x="18" y="26"
+                font-family="Space Grotesk,sans-serif" font-weight="800" font-size="22" fill="white"
+                text-anchor="middle">A</text>
+            </svg>
+            <span>Artha Solutions</span>
+          </a>
+          <p>A premier business and technology consulting firm providing insights and expertise in both business
+            strategy and technical implementations. Quality, Integrity & Trust.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="Twitter">X</a>
+            <a href="#" aria-label="Facebook">f</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Solutions</h4>
+          <div class="footer__links">
+            <a href="/artha-advantage.html" class="footer__link">Artha Advantage</a>
+            <a href="/solutions.html#ai" class="footer__link">AI Consulting</a>
+            <a href="/solutions.html#sap" class="footer__link">SAP Solutions</a>
+            <a href="/solutions.html#data-solutions" class="footer__link">Data Solutions</a>
+            <a href="/solutions.html#cloud" class="footer__link">Cloud Services</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Industries</h4>
+          <div class="footer__links">
+            <a href="/industries.html#manufacturing" class="footer__link">Manufacturing</a>
+            <a href="/industries.html#bfsi" class="footer__link">BFSI</a>
+            <a href="/industries.html#healthcare" class="footer__link">Healthcare</a>
+            <a href="/industries.html#retail" class="footer__link">Retail</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Company</h4>
+          <div class="footer__links">
+            <a href="/about.html" class="footer__link">About Us</a>
+            <a href="/resources.html" class="footer__link">Resources</a>
+            <a href="/contact.html" class="footer__link">Contact</a>
+            <a href="/about.html#partners" class="footer__link">Partners</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Artha Solutions. All rights reserved.</span>
+        <div style="display:flex;gap:var(--space-6);"><a href="#">Privacy Policy</a><a href="#">Cookie Policy</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

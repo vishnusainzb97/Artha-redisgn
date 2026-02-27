@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Artha Solutions | Global Offices</title>
+    <meta name="description"
+        content="Contact Artha Solutions. Offices in Scottsdale, Chicago, Hyderabad, Jakarta, and Singapore. Connect with us today." />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container header__inner">
+            <a href="/" class="header__logo"><svg width="36" height="36" viewBox="0 0 36 36">
+                    <rect width="36" height="36" rx="8" fill="#E8792B" /><text x="18" y="26"
+                        font-family="Space Grotesk,sans-serif" font-weight="800" font-size="22" fill="white"
+                        text-anchor="middle">A</text>
+                </svg><span>Artha Solutions</span></a>
+            <nav class="nav" id="nav">
+                <div class="nav__item"><a href="/" class="nav__link">Home</a></div>
+                <div class="nav__item"><button class="nav__link" aria-expanded="false">Artha Advantage <svg
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg></button>
+                    <div class="nav__dropdown"><a href="/artha-advantage.html#accelerators"
+                            class="nav__dropdown-link">Accelerators</a><a href="/artha-advantage.html#data-insights"
+                            class="nav__dropdown-link">Data Insights Platform</a><a
+                            href="/artha-advantage.html#mdm-lite" class="nav__dropdown-link">MDM Lite</a></div>
+                </div>
+                <div class="nav__item"><button class="nav__link" aria-expanded="false">Solutions <svg
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg></button>
+                    <div class="nav__dropdown"><a href="/solutions.html#data-solutions" class="nav__dropdown-link">Data
+                            Solutions</a><a href="/solutions.html#ai" class="nav__dropdown-link">Artificial
+                            Intelligence</a><a href="/solutions.html#sap" class="nav__dropdown-link">SAP Solutions</a><a
+                            href="/solutions.html#cloud" class="nav__dropdown-link">Cloud & Managed Services</a></div>
+                </div>
+                <div class="nav__item"><a href="/industries.html" class="nav__link">Industries</a></div>
+                <div class="nav__item"><button class="nav__link" aria-expanded="false">Resources <svg
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg></button>
+                    <div class="nav__dropdown"><a href="/resources.html#events" class="nav__dropdown-link">Events</a><a
+                            href="/resources.html#blogs" class="nav__dropdown-link">Blogs</a><a
+                            href="/resources.html#whitepapers" class="nav__dropdown-link">White Papers</a></div>
+                </div>
+                <div class="nav__item"><a href="/about.html" class="nav__link">About Us</a></div>
+            </nav>
+            <div class="header__actions">
+                <button class="search-btn" id="searchBtn" aria-label="Search"><svg width="16" height="16"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg></button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+                <a href="/contact.html" class="btn btn--primary btn--sm active">Get in Touch</a>
+                <button class="mobile-toggle" id="mobileToggle"
+                    aria-label="Open menu"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+    <div class="search-modal" id="searchModal">
+        <div class="search-modal__inner"><input class="search-modal__input" id="searchInput" type="text"
+                placeholder="Search Artha Solutions..." autocomplete="off" />
+            <div class="search-modal__results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-header__title">Contact Us</h1>
+            <p class="page-header__subtitle">Connect with us today. We'd love to hear from you.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid--2 reveal">
+                <!-- FORM -->
+                <div>
+                    <h2 style="font-family:var(--font-heading);font-size:var(--text-2xl);margin-bottom:var(--space-6);">
+                        Send a Message</h2>
+                    <form class="contact-form"
+                        onsubmit="event.preventDefault();alert('Thank you for your message! Our team will respond within 24 hours.');">
+                        <div class="form-row">
+                            <div class="form-group"><label for="firstName">First Name *</label><input type="text"
+                                    id="firstName" required /></div>
+                            <div class="form-group"><label for="lastName">Last Name *</label><input type="text"
+                                    id="lastName" required /></div>
+                        </div>
+                        <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email"
+                                required /></div>
+                        <div class="form-group"><label for="company">Company</label><input type="text" id="company" />
+                        </div>
+                        <div class="form-group"><label for="subject">Subject</label><select id="subject">
+                                <option>General Inquiry</option>
+                                <option>Request a Demo</option>
+                                <option>Partnership Opportunity</option>
+                                <option>Careers</option>
+                                <option>Other</option>
+                            </select></div>
+                        <div class="form-group"><label for="message">Message *</label><textarea id="message"
+                                required></textarea></div>
+                        <button type="submit" class="btn btn--primary btn--lg">Send Message →</button>
+                    </form>
+                </div>
+
+                <!-- CONTACT INFO -->
+                <div>
+                    <h2 style="font-family:var(--font-heading);font-size:var(--text-2xl);margin-bottom:var(--space-6);">
+                        Global Contact</h2>
+                    <div style="display:flex;flex-direction:column;gap:var(--space-6);">
+                        <div class="card">
+                            <h3 class="card__title">Phone</h3>
+                            <p class="card__text"><a href="tel:+14806241196">+1 480-624-1196</a> (US)</p>
+                            <p class="card__text"><a href="tel:+914023115599">+91 40-2311-5599</a> (India)</p>
+                            <p class="card__text"><a href="tel:+622150101978">+62 21-5010-1978</a> (Indonesia)</p>
+                            <p class="card__text"><a href="tel:+6531080715">+65 3108-0715</a> (Singapore)</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card__title">Email</h3>
+                            <p class="card__text"><a href="mailto:solutions@thinkartha.com">solutions@thinkartha.com</a>
+                            </p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card__title">Fax</h3>
+                            <p class="card__text">+1 480-624-1198</p>
+                        </div>
+                    </div>
+                    <div style="margin-top:var(--space-8);">
+                        <h3
+                            style="font-family:var(--font-heading);font-size:var(--text-lg);margin-bottom:var(--space-4);">
+                            Follow Us</h3>
+                        <div class="footer__social">
+                            <a href="https://www.linkedin.com/company/arthasolutions/" target="_blank"
+                                aria-label="LinkedIn">in</a>
+                            <a href="https://twitter.com/ArthaITSolution" target="_blank" aria-label="Twitter">X</a>
+                            <a href="https://www.facebook.com/Arthasolutions/" target="_blank"
+                                aria-label="Facebook">f</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFICE LOCATIONS -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section__header reveal"><span class="section__label">Our Offices</span>
+                <h2 class="section__title">Global Presence</h2>
+            </div>
+            <div class="grid grid--3 reveal">
+                <div class="location-card">
+                    <div class="location-card__city">Scottsdale, USA (HQ)</div>
+                    <div class="location-card__detail">8825 N 23rd Ave, Suite 100, Phoenix AZ 85021</div>
+                    <div class="location-card__detail"><a href="tel:+14806241196">+1 480-624-1196</a></div>
+                </div>
+                <div class="location-card">
+                    <div class="location-card__city">Chicago, USA</div>
+                    <div class="location-card__detail">950 S. Pine St, Suite A, Mt. Prospect, IL 60056</div>
+                    <div class="location-card__detail"><a href="tel:+14806241196">+1 480-624-1196</a></div>
+                </div>
+                <div class="location-card">
+                    <div class="location-card__city">Hyderabad, India</div>
+                    <div class="location-card__detail">8th Floor, Tek Meadows, Rajiv Gandhi Salai, Sholinganallur, OMR,
+                        Chennai 600119</div>
+                    <div class="location-card__detail"><a href="tel:+914023115599">+91 40-2311-5599</a></div>
+                </div>
+                <div class="location-card">
+                    <div class="location-card__city">Jakarta, Indonesia</div>
+                    <div class="location-card__detail">18Office, Jl. TB Simatupang, Jakarta 12430</div>
+                    <div class="location-card__detail"><a href="tel:+622150101978">+62 21-5010-1978</a></div>
+                </div>
+                <div class="location-card">
+                    <div class="location-card__city">Singapore</div>
+                    <div class="location-card__detail">61 Robinson Road, #19-02, Singapore 068893</div>
+                    <div class="location-card__detail"><a href="tel:+6531080715">+65 3108-0715</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand"><a href="/" class="header__logo" style="margin-bottom:var(--space-2);"><svg
+                            width="32" height="32" viewBox="0 0 36 36">
+                            <rect width="36" height="36" rx="8" fill="#E8792B" /><text x="18" y="26"
+                                font-family="Space Grotesk,sans-serif" font-weight="800" font-size="22" fill="white"
+                                text-anchor="middle">A</text>
+                        </svg><span>Artha Solutions</span></a>
+                    <p>Quality, Integrity & Trust.</p>
+                    <div class="footer__social"><a href="#">in</a><a href="#">X</a><a href="#">f</a></div>
+                </div>
+                <div>
+                    <h4 class="footer__heading">Solutions</h4>
+                    <div class="footer__links"><a href="/artha-advantage.html" class="footer__link">Artha
+                            Advantage</a><a href="/solutions.html#ai" class="footer__link">AI</a><a
+                            href="/solutions.html#sap" class="footer__link">SAP</a></div>
+                </div>
+                <div>
+                    <h4 class="footer__heading">Industries</h4>
+                    <div class="footer__links"><a href="/industries.html#manufacturing"
+                            class="footer__link">Manufacturing</a><a href="/industries.html#bfsi"
+                            class="footer__link">BFSI</a><a href="/industries.html#healthcare"
+                            class="footer__link">Healthcare</a></div>
+                </div>
+                <div>
+                    <h4 class="footer__heading">Company</h4>
+                    <div class="footer__links"><a href="/about.html" class="footer__link">About Us</a><a
+                            href="/resources.html" class="footer__link">Resources</a><a href="/contact.html"
+                            class="footer__link">Contact</a></div>
+                </div>
+            </div>
+            <div class="footer__bottom"><span>&copy; 2026 Artha Solutions.</span>
+                <div style="display:flex;gap:var(--space-6);"><a href="#">Privacy</a><a href="#">Cookies</a></div>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

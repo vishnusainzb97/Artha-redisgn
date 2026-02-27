@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - Artha Solutions</title>
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container header__inner">
+            <a href="/" class="header__logo"><svg width="36" height="36" viewBox="0 0 36 36">
+                    <rect width="36" height="36" rx="8" fill="#E8792B" /><text x="18" y="26"
+                        font-family="Space Grotesk,sans-serif" font-weight="800" font-size="22" fill="white"
+                        text-anchor="middle">A</text>
+                </svg><span>Artha Solutions</span></a>
+            <div class="header__actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+                <a href="/" class="btn btn--secondary btn--sm">← Back to Site</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- LOGIN -->
+    <div id="adminLogin">
+        <div class="admin-login" style="margin-top:calc(var(--space-32) + var(--space-12));">
+            <svg width="48" height="48" viewBox="0 0 36 36" style="margin:0 auto var(--space-6);">
+                <rect width="36" height="36" rx="8" fill="#E8792B" /><text x="18" y="26"
+                    font-family="Space Grotesk,sans-serif" font-weight="800" font-size="22" fill="white"
+                    text-anchor="middle">A</text>
+            </svg>
+            <h2 style="font-family:var(--font-heading);font-size:var(--text-2xl);margin-bottom:var(--space-2);">Admin
+                Panel</h2>
+            <p style="color:var(--text-muted);font-size:var(--text-sm);margin-bottom:var(--space-8);">Enter password to
+                manage site images</p>
+            <form id="loginForm" class="contact-form">
+                <div class="form-group"><input type="password" id="adminPassword" placeholder="Enter admin password"
+                        required /></div>
+                <button type="submit" class="btn btn--primary" style="width:100%;">Login →</button>
+                <p id="loginError"
+                    style="color:#ef4444;font-size:var(--text-sm);display:none;margin-top:var(--space-2);">Invalid
+                    password. Please try again.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div id="adminPanel" class="admin-panel">
+        <section class="section" style="padding-top:calc(var(--space-32) + var(--space-8));">
+            <div class="container">
+                <div
+                    style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-8);">
+                    <div>
+                        <h1 style="font-family:var(--font-heading);font-size:var(--text-3xl);">Image Manager</h1>
+                        <p style="color:var(--text-muted);font-size:var(--text-sm);margin-top:var(--space-2);">Upload
+                            and manage images displayed across the website.</p>
+                    </div>
+                    <button class="btn btn--secondary btn--sm"
+                        onclick="if(confirm('Log out?')){document.getElementById('adminPanel').classList.remove('active');document.getElementById('adminLogin').style.display='block';}">Logout</button>
+                </div>
+
+                <!-- Image Location -->
+                <div style="margin-bottom:var(--space-8);">
+                    <h3 style="font-family:var(--font-heading);margin-bottom:var(--space-4);">Select Image Location</h3>
+                    <div style="display:flex;flex-wrap:wrap;gap:var(--space-2);">
+                        <button class="btn btn--secondary btn--sm img-target active" data-key="hero-bg">Hero
+                            Banner</button>
+                        <button class="btn btn--secondary btn--sm img-target" data-key="service-ai">AI Service</button>
+                        <button class="btn btn--secondary btn--sm img-target" data-key="service-data">Data
+                            Service</button>
+                        <button class="btn btn--secondary btn--sm img-target" data-key="service-sap">SAP
+                            Service</button>
+                        <button class="btn btn--secondary btn--sm img-target" data-key="service-cloud">Cloud
+                            Service</button>
+                        <button class="btn btn--secondary btn--sm img-target"
+                            data-key="service-governance">Governance</button>
+                    </div>
+                </div>
+
+                <!-- Upload zone -->
+                <div class="image-upload-zone" id="uploadZone">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)"
+                        stroke-width="1.5" style="margin:0 auto var(--space-4);">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="17 8 12 3 7 8" />
+                        <line x1="12" y1="3" x2="12" y2="15" />
+                    </svg>
+                    <p style="font-size:var(--text-lg);font-weight:600;margin-bottom:var(--space-2);">Drop image here or
+                        click to upload</p>
+                    <p style="color:var(--text-muted);font-size:var(--text-sm);">Supports PNG, JPG, WebP (max 5MB)</p>
+                    <input type="file" id="fileInput" accept="image/*" style="display:none;" />
+                </div>
+
+                <!-- Image Grid -->
+                <h3 style="font-family:var(--font-heading);margin:var(--space-12) 0 var(--space-6);">Uploaded Images
+                </h3>
+                <div class="image-grid" id="imageGrid"></div>
+            </div>
+        </section>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+    <script>
+        // Login
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (document.getElementById('adminPassword').value === 'artha2026') {
+                document.getElementById('adminLogin').style.display = 'none';
+                document.getElementById('adminPanel').classList.add('active');
+                loadImages();
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+            }
+        });
+
+        let currentKey = 'hero-bg';
+        document.querySelectorAll('.img-target').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.img-target').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentKey = btn.dataset.key;
+            });
+        });
+
+        const zone = document.getElementById('uploadZone');
+        const fileInput = document.getElementById('fileInput');
+
+        zone.addEventListener('click', () => fileInput.click());
+        zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
+        zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+        zone.addEventListener('drop', e => {
+            e.preventDefault(); zone.classList.remove('dragover');
+            if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+        });
+        fileInput.addEventListener('change', () => { if (fileInput.files[0]) handleFile(fileInput.files[0]); });
+
+        function handleFile(file) {
+            if (file.size > 5 * 1024 * 1024) { alert('File too large (max 5MB)'); return; }
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const images = JSON.parse(localStorage.getItem('artha-admin-images') || '{}');
+                images[currentKey] = e.target.result;
+                localStorage.setItem('artha-admin-images', JSON.stringify(images));
+                loadImages();
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function loadImages() {
+            const grid = document.getElementById('imageGrid');
+            const images = JSON.parse(localStorage.getItem('artha-admin-images') || '{}');
+            grid.innerHTML = Object.entries(images).map(([key, src]) => `
+        <div class="image-item">
+          <img src="${src}" alt="${key}" />
+          <div style="padding:var(--space-3);display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:0.75rem;color:var(--text-muted);">${key}</span>
+            <button class="image-item__delete" onclick="deleteImage('${key}')">✕</button>
+          </div>
+        </div>
+      `).join('') || '<p style="color:var(--text-muted);grid-column:1/-1;text-align:center;">No images uploaded yet.</p>';
+        }
+
+        window.deleteImage = function (key) {
+            const images = JSON.parse(localStorage.getItem('artha-admin-images') || '{}');
+            delete images[key];
+            localStorage.setItem('artha-admin-images', JSON.stringify(images));
+            loadImages();
+        }
+    </script>
+</body>
+
+</html>
