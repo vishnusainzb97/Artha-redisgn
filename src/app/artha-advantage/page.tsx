@@ -1,62 +1,51 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Shield, Zap, Target, Repeat, Shuffle, Globe, Database, CheckCircle, BarChart3, Brain, Settings, Cloud } from "lucide-react"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ArrowRight, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 
 export default function ArthaAdvantage() {
-    const stagger = {
-        hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
-    }
-    const fadeUp = {
-        hidden: { opacity: 0, y: 30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-    }
 
-    const sections = [
-        {
-            id: "accelerators",
-            title: "Streamline Data Management",
-            label: "Accelerators",
-            desc: "Save time and costs with proprietary accelerators for data quality, integration, and governance.",
-            icon: Zap,
-            items: [
-                { title: "Data Integration", desc: "Seamlessly connect data sources across your enterprise for unified, real-time views.", icon: Database },
-                { title: "Data Quality", desc: "Automated quality checks and data cleansing for trusted, decision-ready data.", icon: CheckCircle },
-                { title: "Governance Controls", desc: "Implement GRC, privacy, and data lineage to maintain compliance.", icon: Shield }
-            ]
-        },
-        {
-            id: "data-insights",
-            title: "AI-Driven Data Governance",
-            label: "Data Insights Platform",
-            desc: "Simplify and accelerate data governance with a comprehensive, AI-driven platform.",
-            icon: Shield,
-            items: [
-                { title: "Regulatory Compliance", desc: "Automates compliance with GDPR, CCPA, HIPAA — improving data quality.", icon: Shield },
-                { title: "MDM for Customer 360", desc: "Unifies customer data for a single view, boosting engagement.", icon: Target },
-                { title: "AI-Driven Rule Management", desc: "Automates data validation rules, freeing teams for insights.", icon: Brain }
-            ]
-        },
-        {
-            id: "mdm-lite",
-            title: "Cost-Effective MDM",
-            label: "MDM Lite",
-            desc: "An easy-to-use platform to manage critical master data without the complexity of full MDM solutions.",
-            icon: Target,
-            items: [
-                { title: "Centralize Key Data", desc: "Consolidate customer, product, and vendor data into one truth.", icon: Database },
-                { title: "Data Deduplication", desc: "Identify and merge duplicate records using advanced matching algorithms.", icon: Repeat },
-                { title: "Rapid Deployment", desc: "Lightweight architecture means lower total cost of ownership.", icon: Settings }
-            ]
-        }
+    const tabs = [
+        "Accelerators",
+        "Digital Transformation",
+        "SAP"
     ]
 
+    const tabContent: Record<string, { desc?: string, list?: string[] }> = {
+        "Accelerators": {
+            desc: "Save time and costs with proprietary accelerators for data quality, integration, and governance.",
+            list: [
+                "Data Insights Platform",
+                "MDM Lite",
+                "Customer 360"
+            ]
+        },
+        "Digital Transformation": {
+            desc: "End-to-end digital strategy and comprehensive transformation services.",
+            list: [
+                "Digital Strategy",
+                "Digital Transformation Solutions & Services"
+            ]
+        },
+        "SAP": {
+            desc: "Accelerate your data migration and integration with specialized tools.",
+            list: [
+                "B'etl - The ETL Migrator"
+            ]
+        }
+    }
+
+    const [activeTab, setActiveTab] = useState(tabs[0])
+
     return (
-        <div className="pt-32 pb-24 min-h-screen">
-            <div className="container mx-auto px-6 max-w-7xl">
+        <div className="pt-32 pb-24 min-h-screen bg-slate-50 relative overflow-hidden">
+            {/* Background Blur Elements */}
+            <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary-600/10 rounded-full blur-[100px] px-1/2 -z-10 mix-blend-multiply pointer-events-none" />
+            <div className="absolute bottom-1/4 right-1/4 w-[800px] h-[800px] bg-emerald-400/10 rounded-full blur-[120px] px-1/2 -z-10 mix-blend-multiply pointer-events-none" />
+
+            <div className="container mx-auto px-6 max-w-7xl relative z-10">
 
                 <div className="text-center max-w-3xl mx-auto mb-20">
                     <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-heading font-black mb-6">
@@ -67,35 +56,56 @@ export default function ArthaAdvantage() {
                     </motion.p>
                 </div>
 
-                <div className="space-y-20">
-                    {sections.map((section, idx) => (
-                        <motion.section
-                            key={section.id}
-                            id={section.id}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            variants={stagger}
-                        >
-                            <div className="mb-10">
-                                <motion.div variants={fadeUp} className="inline-block px-4 py-2 rounded-full bg-primary-50 text-primary-600 font-bold text-xs uppercase tracking-widest mb-4">
-                                    {section.label}
-                                </motion.div>
-                                <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-heading font-bold mb-4">{section.title}</motion.h2>
-                                <motion.p variants={fadeUp} className="text-lg text-foreground/70 max-w-2xl">{section.desc}</motion.p>
-                            </div>
+                <div className="max-w-6xl mx-auto">
+                    {/* PILL NAVIGATION - GLASSMORPHISM */}
+                    <div className="flex flex-wrap justify-center gap-3 mb-12">
+                        {tabs.map((tab) => (
+                            <button
+                                key={tab}
+                                onClick={() => setActiveTab(tab)}
+                                className={`px-6 py-3 rounded-full font-bold text-sm sm:text-base transition-all duration-300 backdrop-blur-md border shadow-sm flex items-center gap-2 ${activeTab === tab
+                                    ? "bg-primary-600 text-white border-primary-500 shadow-primary-600/20 scale-105"
+                                    : "bg-white/50 text-slate-600 border-white/60 hover:bg-white/80 hover:scale-[1.02]"
+                                    }`}
+                            >
+                                {tab}
+                            </button>
+                        ))}
+                    </div>
 
-                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {section.items.map((item, i) => (
-                                    <motion.div variants={fadeUp} key={i} className="glass-card p-8 rounded-3xl hover:border-primary-500/50 transition-all shadow-sm hover:shadow-xl hover:shadow-primary-600/5 group">
-                                        <item.icon className="w-10 h-10 text-primary-600 mb-6 group-hover:scale-110 transition-transform" />
-                                        <h3 className="text-xl font-bold font-heading mb-3">{item.title}</h3>
-                                        <p className="text-foreground/70 leading-relaxed">{item.desc}</p>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </motion.section>
-                    ))}
+                    {/* CONTENT AREA - GLASSMORPHISM */}
+                    <div className="relative min-h-[400px]">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeTab}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                transition={{ duration: 0.4, ease: "easeOut" }}
+                                className="bg-white/40 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] p-8 md:p-12 rounded-[2.5rem] w-full"
+                            >
+                                <div className="max-w-4xl mx-auto">
+                                    <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary-600 mb-4">{activeTab}</h2>
+                                    {tabContent[activeTab].desc && (
+                                        <p className="text-xl text-slate-700 font-medium mb-10 pb-6 border-b border-border/50">{tabContent[activeTab].desc}</p>
+                                    )}
+
+                                    {tabContent[activeTab].list && (
+                                        <div className="grid md:grid-cols-2 gap-x-12 gap-y-6 mt-8">
+                                            {tabContent[activeTab].list.map((item, idx) => (
+                                                <div key={idx} className="flex items-start gap-4 p-4 rounded-2xl hover:bg-white/50 transition-colors border border-transparent hover:border-white/60">
+                                                    <div className="mt-1 bg-primary-50 text-primary-600 rounded-full p-1 border border-primary-100/50 shadow-sm flex-shrink-0">
+                                                        <CheckCircle2 className="w-4 h-4" />
+                                                    </div>
+                                                    <h3 className="text-lg font-bold text-slate-800">{item}</h3>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
                 </div>
 
                 {/* CTA Section */}
