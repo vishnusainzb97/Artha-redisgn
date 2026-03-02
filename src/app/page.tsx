@@ -4,7 +4,7 @@ import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, CheckCircle2, Shield, Zap, Target } from "lucide-react"
+import { ArrowRight, CheckCircle2, Shield, Zap, Target, Award, Star } from "lucide-react"
 import ClientMarquee from "@/components/ClientMarquee"
 
 const fadeIn = {
@@ -20,16 +20,80 @@ const staggerContainer = {
     }
 }
 
-/* Qlik Partner SVG Logo */
-function QlikLogo({ className = "w-20" }: { className?: string }) {
-    return (
-        <div className={`${className} flex items-center gap-1`}>
-            <span className="font-black text-lg tracking-tight text-[#169B62]">Q</span>
-            <span className="font-black text-lg tracking-tight text-slate-800">lik</span>
-            <span className="text-xs font-semibold text-slate-500 ml-0.5">Partner</span>
-        </div>
-    )
-}
+const certifications = [
+    {
+        partner: "Qlik",
+        title: "Partner Customer Success Champion",
+        subtitle: "North America 2024",
+        gradient: "from-[#1a5c3a] to-[#2a8c5a]",
+        accent: "#4dc78a",
+        icon: "ðŸ†"
+    },
+    {
+        partner: "Qlik",
+        title: "Elite Channel Partner",
+        subtitle: "",
+        gradient: "from-[#1a3a5c] to-[#2a5a8c]",
+        accent: "#4da6dc",
+        icon: "â­"
+    },
+    {
+        partner: "Qlik",
+        title: "2025 Expert",
+        subtitle: "Financial Services",
+        gradient: "from-[#1a3a5c] to-[#2a5a8c]",
+        accent: "#4da6dc",
+        icon: "ðŸ¦"
+    },
+    {
+        partner: "Qlik",
+        title: "2025 Expert",
+        subtitle: "Healthcare",
+        gradient: "from-[#1a3a5c] to-[#2a5a8c]",
+        accent: "#4da6dc",
+        icon: "ðŸ¥"
+    },
+    {
+        partner: "Qlik",
+        title: "Partner Advisory Council",
+        subtitle: "Member",
+        gradient: "from-[#2c2a5e] to-[#1a3a6c]",
+        accent: "#7b7bdc",
+        icon: "ðŸ›¡ï¸"
+    },
+    {
+        partner: "Talend",
+        title: "Cloud Expert Partner",
+        subtitle: "â˜…â˜…â˜…",
+        gradient: "from-[#c85a7c] to-[#4a1942]",
+        accent: "#e8735a",
+        icon: "â˜ï¸"
+    },
+    {
+        partner: "Talend",
+        title: "Data Governance Expert",
+        subtitle: "â˜…â˜…â˜…",
+        gradient: "from-[#c85a7c] to-[#4a1942]",
+        accent: "#e8735a",
+        icon: "ðŸ“Š"
+    },
+    {
+        partner: "Microsoft",
+        title: "Solutions Partner",
+        subtitle: "Data & AI Â· Azure",
+        gradient: "from-[#2b579a] to-[#0078d4]",
+        accent: "#50e6ff",
+        icon: "ðŸ’ "
+    },
+    {
+        partner: "AWS",
+        title: "Partner",
+        subtitle: "Amazon EMR Delivery",
+        gradient: "from-[#232f3e] to-[#37475a]",
+        accent: "#ff9900",
+        icon: "â˜ï¸"
+    }
+]
 
 export default function Home() {
     const containerRef = useRef(null)
@@ -103,123 +167,58 @@ export default function Home() {
                 <ClientMarquee />
             </section>
 
-            {/* PARTNER CERTIFICATIONS - Matching thinkartha.com */}
+            {/* PARTNER CERTIFICATIONS */}
             <section className="py-16 md:py-20 bg-[#1a7a6d]">
                 <div className="container mx-auto px-6 max-w-7xl">
-
-                    {/* Row 1 - 5 Qlik Badges */}
-                    <div className="flex flex-wrap justify-center items-center gap-5 md:gap-6 lg:gap-8 mb-8 md:mb-10">
-
-                        {/* Badge 1: Qlik Partner Customer Success Champion Award */}
-                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0, duration: 0.5 }}
-                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src="https://www.thinkartha.com/wp-content/uploads/2025/05/Qlik_North_America_Partner_Customer_Success_Award_Artha_Solutions.png" alt="Qlik Partner Customer Success Champion Award 2024" className="h-[130px] md:h-[150px] lg:h-[170px] w-auto object-contain drop-shadow-lg" />
-                        </motion.div>
-
-                        {/* Badge 2: Qlik Elite Channel Partner */}
-                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.1, duration: 0.5 }}
-                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                            {/* CSS Badge */}
-              <div className=" h-[130px] md:h-[150px] lg:h-[170px] w-[120px] md:w-[140px] bg-white rounded-lg border-2 border-[#1a3a5c] p-3 flex flex-col items-center justify-center text-center shadow-lg">
-                                <div className="text-xs font-bold text-[#1a3a5c] border-b border-[#1a3a5c] pb-1 mb-2 w-full">Qlik Partner</div>
-                                <div className="text-xl font-black text-[#1a3a5c] mb-1">Elite</div>
-                                <div className="bg-[#169B62] text-white text-[10px] font-bold px-3 py-1 rounded">Channel Partner</div>
-                            </div>
-                        </motion.div>
-
-                        {/* Badge 3: Qlik 2025 Expert Financial Services */}
-                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.2, duration: 0.5 }}
-                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src="https://www.thinkartha.com/wp-content/uploads/2025/09/Artha-Soluitons-Qlik-Industry-Expertise-badge.png" alt="Qlik Partner 2025 Expert Financial Services" className="h-[130px] md:h-[150px] lg:h-[170px] w-auto object-contain drop-shadow-lg" />
-                        </motion.div>
-
-                        {/* Badge 4: Qlik 2025 Expert Healthcare */}
-                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.5 }}
-                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src="https://www.thinkartha.com/wp-content/uploads/2025/08/Qlik-Partner_Industry_Badges-V3_Healthcare.png" alt="Qlik Partner 2025 Expert Healthcare" className="h-[130px] md:h-[150px] lg:h-[170px] w-auto object-contain drop-shadow-lg" />
-                        </motion.div>
-
-                        {/* Badge 5: Qlik Partner Advisory Council - CSS Fallback */}
-                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.4, duration: 0.5 }}
-                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                            <div className="h-[130px] md:h-[150px] lg:h-[170px] w-[120px] md:w-[140px] lg:w-[155px] bg-gradient-to-b from-[#1a3a6c] to-[#2c2a5e] rounded-t-full rounded-b-lg p-4 flex flex-col items-center justify-center text-center shadow-lg border border-white/20">
-                                <div className="text-white font-black text-sm tracking-tight mb-1">Qlik</div>
-                                <div className="text-white/90 text-[10px] font-bold leading-tight mb-3">Partner Advisory<br />Council</div>
-                                <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
-                                    <svg className="w-6 h-6 text-white/80" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-7 7c0-2.67 5.33-4 7-4s7 1.33 7 4v1H5v-1zm12-7c1.1 0 2-.9 2-2s-.9-2-2-2a2 2 0 00-1.82 1.18C16.63 9.76 17 10.85 17 12h.01zM7 10c-1.1 0-2 .9-2 2h.01c0-1.15.37-2.24.81-2.82A2 2 0 005 10z" /></svg>
-                                </div>
-                            </div>
-                        </motion.div>
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">Partner Certifications</h2>
+                        <p className="text-white/70 text-lg">Industry-recognized expertise across leading platforms</p>
                     </div>
 
-                    {/* Row 2 - Talend, Microsoft, AWS */}
-                    <div className="flex flex-wrap justify-center items-center gap-5 md:gap-6 lg:gap-8">
-
-                        {/* Badge 6: Talend Cloud Expert Partner */}
-                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.5, duration: 0.5 }}
-                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                            <div className="h-[140px] md:h-[160px] lg:h-[170px] w-[130px] md:w-[145px] lg:w-[155px] bg-gradient-to-br from-[#c85a7c] to-[#4a1942] rounded-[2rem] p-4 flex flex-col items-center justify-center text-center shadow-lg border border-white/10">
-                                <div className="w-10 h-10 rounded-full bg-[#e8735a] flex items-center justify-center mb-2 shadow">
-                                    <span className="text-white font-bold text-[10px]">talend</span>
+                    {/* Row 1: 5 Qlik badges */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-4">
+                        {certifications.slice(0, 5).map((cert, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.08, duration: 0.5 }}
+                                className={`bg-gradient-to-br ${cert.gradient} rounded-2xl p-5 flex flex-col items-center justify-center text-center min-h-[160px] border border-white/10 shadow-lg hover:scale-[1.03] hover:shadow-xl transition-all duration-300`}
+                            >
+                                <span className="text-3xl mb-2">{cert.icon}</span>
+                                <div className="bg-white/15 backdrop-blur-sm rounded-full px-3 py-0.5 mb-2">
+                                    <span className="text-white text-[11px] font-bold tracking-wide">{cert.partner}</span>
                                 </div>
-                                <p className="text-white/70 text-[9px] font-medium">Talend Cloud</p>
-                                <h4 className="text-white font-black text-xl leading-none mb-0.5">Expert</h4>
-                                <p className="text-white/70 text-[10px] font-medium tracking-wider">partner</p>
-                                <div className="flex gap-0.5 mt-1.5">{[1, 2, 3].map(s => <span key={s} className="text-yellow-400 text-xs">â˜…</span>)}</div>
-                            </div>
-                        </motion.div>
+                                <h4 className="text-white font-bold text-sm leading-tight mb-1">{cert.title}</h4>
+                                {cert.subtitle && (
+                                    <p className="text-white/60 text-xs font-medium">{cert.subtitle}</p>
+                                )}
+                            </motion.div>
+                        ))}
+                    </div>
 
-                        {/* Badge 7: Talend Data Governance Expert Partner */}
-                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.6, duration: 0.5 }}
-                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                            {/* CSS Badge */}
-              <div className=" h-[140px] md:h-[160px] lg:h-[170px] w-[130px] md:w-[145px] lg:w-[155px] bg-gradient-to-br from-[#c85a7c] to-[#4a1942] rounded-[2rem] p-4 flex flex-col items-center justify-center text-center shadow-lg border border-white/10">
-                                <div className="w-10 h-10 rounded-full bg-[#e8735a] flex items-center justify-center mb-2 shadow">
-                                    <span className="text-white font-bold text-[10px]">talend</span>
+                    {/* Row 2: 4 remaining badges */}
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                        {certifications.slice(5).map((cert, i) => (
+                            <motion.div
+                                key={i + 5}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: (i + 5) * 0.08, duration: 0.5 }}
+                                className={`bg-gradient-to-br ${cert.gradient} rounded-2xl p-5 flex flex-col items-center justify-center text-center min-h-[160px] border border-white/10 shadow-lg hover:scale-[1.03] hover:shadow-xl transition-all duration-300`}
+                            >
+                                <span className="text-3xl mb-2">{cert.icon}</span>
+                                <div className="bg-white/15 backdrop-blur-sm rounded-full px-3 py-0.5 mb-2">
+                                    <span className="text-white text-[11px] font-bold tracking-wide">{cert.partner}</span>
                                 </div>
-                                <p className="text-white/70 text-[9px] font-medium leading-tight">Talend Data Governance</p>
-                                <h4 className="text-white font-black text-xl leading-none mb-0.5">Expert</h4>
-                                <p className="text-white/70 text-[10px] font-medium tracking-wider">partner</p>
-                                <div className="flex gap-0.5 mt-1.5">{[1, 2, 3].map(s => <span key={s} className="text-yellow-400 text-xs">â˜…</span>)}</div>
-                            </div>
-                        </motion.div>
-
-                        {/* Badge 8: Microsoft Solutions Partner */}
-                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.7, duration: 0.5 }}
-                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                            <div className="h-[130px] md:h-[140px] lg:h-[150px] w-auto min-w-[200px] md:min-w-[240px] bg-white rounded-xl p-5 flex items-center gap-4 shadow-lg border border-gray-100">
-                                <div className="w-9 h-9 grid grid-cols-2 gap-[2px] flex-shrink-0">
-                                    <div className="bg-[#f25022] rounded-sm"></div><div className="bg-[#7fba00] rounded-sm"></div>
-                                    <div className="bg-[#00a4ef] rounded-sm"></div><div className="bg-[#ffb900] rounded-sm"></div>
-                                </div>
-                                <div className="text-left">
-                                    <div className="flex items-center gap-1 mb-0.5">
-                                        <span className="text-[11px] text-slate-500 font-medium">Microsoft</span>
-                                    </div>
-                                    <h4 className="text-sm font-bold text-slate-800 leading-tight">Solutions Partner</h4>
-                                    <div className="mt-1.5 border-t border-gray-200 pt-1.5">
-                                        <p className="text-xs text-slate-600 font-medium">Data & AI</p>
-                                        <p className="text-xs text-slate-400">Azure</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* Badge 9: AWS Partner Amazon EMR Delivery */}
-                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.8, duration: 0.5 }}
-                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                            {/* CSS Badge */}
-              <div className=" h-[130px] md:h-[140px] lg:h-[150px] w-auto min-w-[180px] md:min-w-[200px] bg-white rounded-xl p-5 flex flex-col items-center justify-center shadow-lg border border-gray-100 relative overflow-hidden">
-                                <div className="absolute top-0 left-0 w-1.5 h-full bg-[#232f3e]"></div>
-                                <span className="font-black text-[#232f3e] text-xl tracking-tighter mb-0.5">aws <span className="text-[#ff9900]">partner</span></span>
-                                <div className="h-px w-full bg-gray-200 my-1.5"></div>
-                                <h4 className="text-slate-800 font-bold text-xs uppercase tracking-wider">Amazon EMR</h4>
-                                <p className="text-slate-500 text-xs font-bold tracking-widest uppercase">Delivery</p>
-                            </div>
-                        </motion.div>
+                                <h4 className="text-white font-bold text-sm leading-tight mb-1">{cert.title}</h4>
+                                {cert.subtitle && (
+                                    <p className="text-white/60 text-xs font-medium">{cert.subtitle}</p>
+                                )}
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
