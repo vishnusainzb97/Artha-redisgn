@@ -54,7 +54,7 @@ export default function Home() {
                             <span className="text-gradient inline-block pb-2">Real Business Impact</span>
                         </motion.h1>
                         <motion.p variants={fadeIn} className="text-lg lg:text-xl text-foreground/60 mb-12 max-w-2xl leading-relaxed">
-                            We help enterprises integrate, govern, and transform their data â€” so you can make better decisions, faster.
+                            We help enterprises integrate, govern, and transform their data — so you can make better decisions, faster.
                         </motion.p>
                         <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-6 items-center justify-center">
                             <Link href="/contact" className="h-14 px-8 rounded-full bg-primary-600 text-white font-semibold flex items-center gap-2 hover:bg-primary-700 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-primary-600/30 text-lg">
@@ -349,5 +349,6 @@ export default function Home() {
         </div>
     )
 }
+
 
 
