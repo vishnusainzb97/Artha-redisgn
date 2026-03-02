@@ -20,75 +20,7 @@ const staggerContainer = {
     }
 }
 
- to-[#2a8c5a]",
-        accent: "#4dc78a",
-        icon: "ðŸ†"
-    },
-    {
-        partner: "Qlik",
-        title: "Elite Channel Partner",
-        subtitle: "",
-        gradient: "from-[#1a3a5c] to-[#2a5a8c]",
-        accent: "#4da6dc",
-        icon: "â­"
-    },
-    {
-        partner: "Qlik",
-        title: "2025 Expert",
-        subtitle: "Financial Services",
-        gradient: "from-[#1a3a5c] to-[#2a5a8c]",
-        accent: "#4da6dc",
-        icon: "ðŸ¦"
-    },
-    {
-        partner: "Qlik",
-        title: "2025 Expert",
-        subtitle: "Healthcare",
-        gradient: "from-[#1a3a5c] to-[#2a5a8c]",
-        accent: "#4da6dc",
-        icon: "ðŸ¥"
-    },
-    {
-        partner: "Qlik",
-        title: "Partner Advisory Council",
-        subtitle: "Member",
-        gradient: "from-[#2c2a5e] to-[#1a3a6c]",
-        accent: "#7b7bdc",
-        icon: "ðŸ›¡ï¸"
-    },
-    {
-        partner: "Talend",
-        title: "Cloud Expert Partner",
-        subtitle: "â˜…â˜…â˜…",
-        gradient: "from-[#c85a7c] to-[#4a1942]",
-        accent: "#e8735a",
-        icon: "â˜ï¸"
-    },
-    {
-        partner: "Talend",
-        title: "Data Governance Expert",
-        subtitle: "â˜…â˜…â˜…",
-        gradient: "from-[#c85a7c] to-[#4a1942]",
-        accent: "#e8735a",
-        icon: "ðŸ“Š"
-    },
-    {
-        partner: "Microsoft",
-        title: "Solutions Partner",
-        subtitle: "Data & AI Â· Azure",
-        gradient: "from-[#2b579a] to-[#0078d4]",
-        accent: "#50e6ff",
-        icon: "ðŸ’ "
-    },
-    {
-        partner: "AWS",
-        title: "Partner",
-        subtitle: "Amazon EMR Delivery",
-        gradient: "from-[#232f3e] to-[#37475a]",
-        accent: "#ff9900",
-        icon: "â˜ï¸"
-    }
-]
+
 
 export default function Home() {
     const containerRef = useRef(null)
@@ -162,7 +94,126 @@ export default function Home() {
                 <ClientMarquee />
             </section>
 
-                  {/* TESTIMONIALS */}
+            {/* PARTNER CERTIFICATIONS */}
+      <section className="py-32 bg-surface/30 border-y border-border">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-sm font-bold tracking-widest uppercase text-primary-600 mb-4">Certified Excellence</h2>
+            <h3 className="text-4xl md:text-5xl font-heading font-bold mb-6">Recognized by Industry Leaders</h3>
+            <p className="text-foreground/70 max-w-2xl mx-auto text-lg hover-glow">Our deep technical expertise is officially recognized and awarded by the world's leading data, cloud, and AI platforms.</p>
+          </div>
+
+          <div className="flex flex-wrap justify-center items-center gap-6 max-w-6xl mx-auto">
+            {/* Qlik Awards */}
+            {[
+              {
+                brand: "Qlik",
+                title: "Partner Customer Success Champion Award",
+                subtitle: "North America 2024",
+                color: "from-emerald-500 to-teal-700"
+              },
+              {
+                brand: "Qlik",
+                title: "Elite",
+                subtitle: "Channel Partner",
+                color: "from-emerald-600 to-emerald-900"
+              },
+              {
+                brand: "Qlik",
+                title: "2025 Expert",
+                subtitle: "Financial Services",
+                color: "from-blue-600 to-slate-800"
+              },
+              {
+                brand: "Qlik",
+                title: "2025 Expert",
+                subtitle: "Healthcare",
+                color: "from-teal-500 to-slate-800"
+              },
+              {
+                brand: "Qlik",
+                title: "Partner Advisory Council",
+                subtitle: "Member",
+                color: "from-green-500 to-emerald-800"
+              }
+            ].map((badge, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className={`relative overflow-hidden flex flex-col items-center justify-center p-6 text-center rounded-[2rem] border border-border/50 shadow-xl shadow-black/5 bg-gradient-to-br ${badge.color} group hover:-translate-y-2 transition-transform duration-300`}
+              >
+                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity mix-blend-overlay"></div>
+                <div className="bg-white px-4 py-1.5 rounded-full mb-4 shadow-sm">
+                  <span className="font-bold text-slate-800 tracking-tight">{badge.brand} <span className="font-light">Partner</span></span>
+                </div>
+                <h4 className="text-white font-bold text-sm leading-tight mb-1">{badge.title}</h4>
+                <p className="text-white/80 text-xs font-medium">{badge.subtitle}</p>
+              </motion.div>
+            ))}
+
+            {/* Talend Awards */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
+              className="relative overflow-hidden flex flex-col items-center justify-center p-6 text-center rounded-[2rem] border border-border/50 shadow-xl shadow-black/5 bg-gradient-to-br from-rose-500 to-purple-900 group hover:-translate-y-2 transition-transform duration-300"
+            >
+              <div className="bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full mb-4 shadow-sm">
+                <span className="font-bold text-white tracking-tight">talend</span>
+              </div>
+              <p className="text-white/80 text-xs mb-1">Talend Cloud</p>
+              <h4 className="text-white font-bold text-lg mb-1 leading-none">Expert</h4>
+              <p className="text-white/80 text-xs tracking-widest uppercase">partner</p>
+              <div className="flex gap-1 mt-2">{[1, 2, 3].map(s => <span key={s} className="text-yellow-400 text-xs">★</span>)}</div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.6 }}
+              className="relative overflow-hidden flex flex-col items-center justify-center p-6 text-center rounded-[2rem] border border-border/50 shadow-xl shadow-black/5 bg-gradient-to-br from-rose-500 to-purple-900 group hover:-translate-y-2 transition-transform duration-300"
+            >
+              <div className="bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full mb-4 shadow-sm">
+                <span className="font-bold text-white tracking-tight">talend</span>
+              </div>
+              <p className="text-white/80 text-xs mb-1">Data Governance</p>
+              <h4 className="text-white font-bold text-lg mb-1 leading-none">Expert</h4>
+              <p className="text-white/80 text-xs tracking-widest uppercase">partner</p>
+              <div className="flex gap-1 mt-2">{[1, 2, 3].map(s => <span key={s} className="text-yellow-400 text-xs">★</span>)}</div>
+            </motion.div>
+
+            {/* Microsoft & AWS */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.7 }}
+              className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[420px] overflow-hidden flex items-center justify-center p-6 bg-white rounded-[2rem] border border-border shadow-xl shadow-black/5 group hover:-translate-y-2 transition-transform duration-300 gap-4"
+            >
+              <div className="w-8 h-8 grid grid-cols-2 gap-0.5 flex-shrink-0">
+                <div className="bg-[#f25022]"></div><div className="bg-[#7fba00]"></div>
+                <div className="bg-[#00a4ef]"></div><div className="bg-[#ffb900]"></div>
+              </div>
+              <div className="text-left">
+                <h4 className="text-slate-800 font-bold text-sm leading-tight">Microsoft Solutions Partner</h4>
+                <p className="text-slate-500 text-xs">Data & AI Azure</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.8 }}
+              className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[420px] overflow-hidden flex flex-col items-center justify-center p-6 bg-white rounded-[2rem] border border-border shadow-xl shadow-black/5 group hover:-translate-y-2 transition-transform duration-300"
+            >
+              <div className="text-left w-full flex items-center gap-4 justify-center">
+                <span className="font-bold text-slate-800 text-xl tracking-tighter">aws <span className="text-[#ff9900]">partner</span></span>
+                <div className="h-8 w-px bg-border"></div>
+                <div>
+                  <h4 className="text-slate-800 font-bold text-sm leading-tight uppercase">Amazon EMR</h4>
+                  <p className="text-slate-500 text-xs font-bold tracking-widest uppercase">Delivery</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
             <section className="py-32 bg-background relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-600/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-primary-400/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/3 pointer-events-none" />
