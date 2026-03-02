@@ -20,62 +20,51 @@ const staggerContainer = {
     }
 }
 
+/* Qlik Partner SVG Logo */
+function QlikLogo({ className = "w-20" }: { className?: string }) {
+    return (
+        <div className={`${className} flex items-center gap-1`}>
+            <span className="font-black text-lg tracking-tight text-[#169B62]">Q</span>
+            <span className="font-black text-lg tracking-tight text-slate-800">lik</span>
+            <span className="text-xs font-semibold text-slate-500 ml-0.5">Partner</span>
+        </div>
+    )
+}
+
 export default function Home() {
     const containerRef = useRef(null)
 
-    // Apple-style Parallax setup
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end start"]
     })
 
-    // Transform values for parallax effect
     const yHero = useTransform(scrollYProgress, [0, 1], [0, 400])
     const opacityHero = useTransform(scrollYProgress, [0, 0.5], [1, 0])
     const scaleHero = useTransform(scrollYProgress, [0, 1], [1, 0.8])
-
     const yBlob1 = useTransform(scrollYProgress, [0, 1], [0, 600])
     const yBlob2 = useTransform(scrollYProgress, [0, 1], [0, -300])
-
-    const certBadges = [
-        { src: "https://www.thinkartha.com/wp-content/uploads/2025/05/Qlik_North_America_Partner_Customer_Success_Award_Artha_Solutions.png", alt: "Qlik Partner Customer Success Champion Award - North America 2024" },
-        { src: "https://www.thinkartha.com/wp-content/uploads/2025/05/Qlik-Elite-Partner.svg", alt: "Qlik Elite Channel Partner" },
-        { src: "https://www.thinkartha.com/wp-content/uploads/2025/09/Artha-Soluitons-Qlik-Industry-Expertise-badge.png", alt: "Qlik Partner 2025 Expert - Financial Services" },
-        { src: "https://www.thinkartha.com/wp-content/uploads/2025/08/Qlik-Partner_Industry_Badges-V3_Healthcare.png", alt: "Qlik Partner 2025 Expert - Healthcare" },
-        { src: "https://www.thinkartha.com/wp-content/uploads/2025/05/Qlik-Partner-Advisory-Council---1.svg", alt: "Qlik Partner Advisory Council" }
-    ]
-
-    const certBadgesRow2 = [
-        { src: "https://www.thinkartha.com/wp-content/uploads/2025/05/Talend-Expert-Partner---1.svg", alt: "Talend Cloud Expert Partner" },
-        { src: "https://www.thinkartha.com/wp-content/uploads/2025/05/Talend-Data-Governance.svg", alt: "Talend Data Governance Expert Partner" },
-        { src: "https://www.thinkartha.com/wp-content/uploads/2025/05/Microsoft-Solutions-Partner-Data-AI-Azure---1.svg", alt: "Microsoft Solutions Partner - Data & AI Azure" },
-        { src: "https://www.thinkartha.com/wp-content/uploads/2025/05/AWS-Partner-1.svg", alt: "AWS Partner - Amazon EMR Delivery" }
-    ]
 
     return (
         <div className="flex flex-col min-h-screen" ref={containerRef}>
 
-            {/* HERO SECTION with Parallax */}
+            {/* HERO SECTION */}
             <motion.section
                 style={{ y: yHero, opacity: opacityHero, scale: scaleHero }}
                 className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden flex items-center min-h-[95vh] will-change-transform"
             >
-                {/* Abstract animated background blobs with aggressive parallax */}
                 <motion.div style={{ y: yBlob1 }} className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary-600/15 rounded-full blur-[120px] -translate-y-1/2 -z-10 mix-blend-multiply" />
                 <motion.div style={{ y: yBlob2 }} className="absolute bottom-0 right-1/4 w-[800px] h-[800px] bg-primary-400/15 rounded-full blur-[150px] translate-y-1/4 -z-10 mix-blend-multiply" />
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl mx-auto flex flex-col items-center">
-
                         <motion.h1 variants={fadeIn} className="text-5xl lg:text-7xl font-heading font-extrabold tracking-tighter mb-8 leading-[1.1] text-foreground">
                             Data Solutions That Drive <br />
                             <span className="text-gradient inline-block pb-2">Real Business Impact</span>
                         </motion.h1>
-
                         <motion.p variants={fadeIn} className="text-lg lg:text-xl text-foreground/60 mb-12 max-w-2xl leading-relaxed">
                             We help enterprises integrate, govern, and transform their data â€” so you can make better decisions, faster.
                         </motion.p>
-
                         <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-6 items-center justify-center">
                             <Link href="/contact" className="h-14 px-8 rounded-full bg-primary-600 text-white font-semibold flex items-center gap-2 hover:bg-primary-700 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-primary-600/30 text-lg">
                                 Start Your Journey <ArrowRight className="w-5 h-5" />
@@ -84,7 +73,6 @@ export default function Home() {
                                 Explore Solutions
                             </Link>
                         </motion.div>
-
                     </motion.div>
                 </div>
             </motion.section>
@@ -115,55 +103,144 @@ export default function Home() {
                 <ClientMarquee />
             </section>
 
-            {/* PARTNER CERTIFICATIONS - Matching Original thinkartha.com */}
-            <section className="py-20 bg-[#1a7a6d]">
+            {/* PARTNER CERTIFICATIONS - Matching thinkartha.com */}
+            <section className="py-16 md:py-20 bg-[#1a7a6d]">
                 <div className="container mx-auto px-6 max-w-7xl">
+
                     {/* Row 1 - 5 Qlik Badges */}
-                    <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8 lg:gap-10 mb-10">
-                        {certBadges.map((badge, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1, duration: 0.5 }}
-                                className="flex-shrink-0"
-                            >
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    src={badge.src}
-                                    alt={badge.alt}
-                                    className="h-[120px] md:h-[140px] lg:h-[160px] w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform duration-300"
-                                />
-                            </motion.div>
-                        ))}
+                    <div className="flex flex-wrap justify-center items-center gap-5 md:gap-6 lg:gap-8 mb-8 md:mb-10">
+
+                        {/* Badge 1: Qlik Partner Customer Success Champion Award */}
+                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0, duration: 0.5 }}
+                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="https://www.thinkartha.com/wp-content/uploads/2025/05/Qlik_North_America_Partner_Customer_Success_Award_Artha_Solutions.png" alt="Qlik Partner Customer Success Champion Award 2024" className="h-[130px] md:h-[150px] lg:h-[170px] w-auto object-contain drop-shadow-lg" />
+                        </motion.div>
+
+                        {/* Badge 2: Qlik Elite Channel Partner */}
+                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.1, duration: 0.5 }}
+                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="https://www.thinkartha.com/wp-content/uploads/2025/05/Qlik-Elite-Partner.svg" alt="Qlik Elite Channel Partner"
+                                className="h-[130px] md:h-[150px] lg:h-[170px] w-auto object-contain drop-shadow-lg"
+                                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden'); }}
+                            />
+                            {/* Fallback if SVG fails to load */}
+                            <div className="hidden h-[130px] md:h-[150px] lg:h-[170px] w-[120px] md:w-[140px] bg-white rounded-lg border-2 border-[#1a3a5c] p-3 flex flex-col items-center justify-center text-center shadow-lg">
+                                <div className="text-xs font-bold text-[#1a3a5c] border-b border-[#1a3a5c] pb-1 mb-2 w-full">Qlik Partner</div>
+                                <div className="text-xl font-black text-[#1a3a5c] mb-1">Elite</div>
+                                <div className="bg-[#169B62] text-white text-[10px] font-bold px-3 py-1 rounded">Channel Partner</div>
+                            </div>
+                        </motion.div>
+
+                        {/* Badge 3: Qlik 2025 Expert Financial Services */}
+                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.2, duration: 0.5 }}
+                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="https://www.thinkartha.com/wp-content/uploads/2025/09/Artha-Soluitons-Qlik-Industry-Expertise-badge.png" alt="Qlik Partner 2025 Expert Financial Services" className="h-[130px] md:h-[150px] lg:h-[170px] w-auto object-contain drop-shadow-lg" />
+                        </motion.div>
+
+                        {/* Badge 4: Qlik 2025 Expert Healthcare */}
+                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.5 }}
+                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="https://www.thinkartha.com/wp-content/uploads/2025/08/Qlik-Partner_Industry_Badges-V3_Healthcare.png" alt="Qlik Partner 2025 Expert Healthcare" className="h-[130px] md:h-[150px] lg:h-[170px] w-auto object-contain drop-shadow-lg" />
+                        </motion.div>
+
+                        {/* Badge 5: Qlik Partner Advisory Council - CSS Fallback */}
+                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.4, duration: 0.5 }}
+                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                            <div className="h-[130px] md:h-[150px] lg:h-[170px] w-[120px] md:w-[140px] lg:w-[155px] bg-gradient-to-b from-[#1a3a6c] to-[#2c2a5e] rounded-t-full rounded-b-lg p-4 flex flex-col items-center justify-center text-center shadow-lg border border-white/20">
+                                <div className="text-white font-black text-sm tracking-tight mb-1">Qlik</div>
+                                <div className="text-white/90 text-[10px] font-bold leading-tight mb-3">Partner Advisory<br />Council</div>
+                                <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
+                                    <svg className="w-6 h-6 text-white/80" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-7 7c0-2.67 5.33-4 7-4s7 1.33 7 4v1H5v-1zm12-7c1.1 0 2-.9 2-2s-.9-2-2-2a2 2 0 00-1.82 1.18C16.63 9.76 17 10.85 17 12h.01zM7 10c-1.1 0-2 .9-2 2h.01c0-1.15.37-2.24.81-2.82A2 2 0 005 10z" /></svg>
+                                </div>
+                            </div>
+                        </motion.div>
                     </div>
+
                     {/* Row 2 - Talend, Microsoft, AWS */}
-                    <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8 lg:gap-10">
-                        {certBadgesRow2.map((badge, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 + 0.5, duration: 0.5 }}
-                                className="flex-shrink-0"
-                            >
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    src={badge.src}
-                                    alt={badge.alt}
-                                    className="h-[120px] md:h-[140px] lg:h-[160px] w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform duration-300"
-                                />
-                            </motion.div>
-                        ))}
+                    <div className="flex flex-wrap justify-center items-center gap-5 md:gap-6 lg:gap-8">
+
+                        {/* Badge 6: Talend Cloud Expert Partner */}
+                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.5, duration: 0.5 }}
+                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                            <div className="h-[140px] md:h-[160px] lg:h-[170px] w-[130px] md:w-[145px] lg:w-[155px] bg-gradient-to-br from-[#c85a7c] to-[#4a1942] rounded-[2rem] p-4 flex flex-col items-center justify-center text-center shadow-lg border border-white/10">
+                                <div className="w-10 h-10 rounded-full bg-[#e8735a] flex items-center justify-center mb-2 shadow">
+                                    <span className="text-white font-bold text-[10px]">talend</span>
+                                </div>
+                                <p className="text-white/70 text-[9px] font-medium">Talend Cloud</p>
+                                <h4 className="text-white font-black text-xl leading-none mb-0.5">Expert</h4>
+                                <p className="text-white/70 text-[10px] font-medium tracking-wider">partner</p>
+                                <div className="flex gap-0.5 mt-1.5">{[1, 2, 3].map(s => <span key={s} className="text-yellow-400 text-xs">â˜…</span>)}</div>
+                            </div>
+                        </motion.div>
+
+                        {/* Badge 7: Talend Data Governance Expert Partner */}
+                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.6, duration: 0.5 }}
+                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="https://www.thinkartha.com/wp-content/uploads/2025/05/Talend-Data-Governance.svg" alt="Talend Data Governance Expert Partner"
+                                className="h-[140px] md:h-[160px] lg:h-[170px] w-auto object-contain drop-shadow-lg"
+                                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden'); }}
+                            />
+                            {/* Fallback */}
+                            <div className="hidden h-[140px] md:h-[160px] lg:h-[170px] w-[130px] md:w-[145px] lg:w-[155px] bg-gradient-to-br from-[#c85a7c] to-[#4a1942] rounded-[2rem] p-4 flex flex-col items-center justify-center text-center shadow-lg border border-white/10">
+                                <div className="w-10 h-10 rounded-full bg-[#e8735a] flex items-center justify-center mb-2 shadow">
+                                    <span className="text-white font-bold text-[10px]">talend</span>
+                                </div>
+                                <p className="text-white/70 text-[9px] font-medium leading-tight">Talend Data Governance</p>
+                                <h4 className="text-white font-black text-xl leading-none mb-0.5">Expert</h4>
+                                <p className="text-white/70 text-[10px] font-medium tracking-wider">partner</p>
+                                <div className="flex gap-0.5 mt-1.5">{[1, 2, 3].map(s => <span key={s} className="text-yellow-400 text-xs">â˜…</span>)}</div>
+                            </div>
+                        </motion.div>
+
+                        {/* Badge 8: Microsoft Solutions Partner */}
+                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.7, duration: 0.5 }}
+                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                            <div className="h-[130px] md:h-[140px] lg:h-[150px] w-auto min-w-[200px] md:min-w-[240px] bg-white rounded-xl p-5 flex items-center gap-4 shadow-lg border border-gray-100">
+                                <div className="w-9 h-9 grid grid-cols-2 gap-[2px] flex-shrink-0">
+                                    <div className="bg-[#f25022] rounded-sm"></div><div className="bg-[#7fba00] rounded-sm"></div>
+                                    <div className="bg-[#00a4ef] rounded-sm"></div><div className="bg-[#ffb900] rounded-sm"></div>
+                                </div>
+                                <div className="text-left">
+                                    <div className="flex items-center gap-1 mb-0.5">
+                                        <span className="text-[11px] text-slate-500 font-medium">Microsoft</span>
+                                    </div>
+                                    <h4 className="text-sm font-bold text-slate-800 leading-tight">Solutions Partner</h4>
+                                    <div className="mt-1.5 border-t border-gray-200 pt-1.5">
+                                        <p className="text-xs text-slate-600 font-medium">Data & AI</p>
+                                        <p className="text-xs text-slate-400">Azure</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        {/* Badge 9: AWS Partner Amazon EMR Delivery */}
+                        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.8, duration: 0.5 }}
+                            className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="https://www.thinkartha.com/wp-content/uploads/2025/05/AWS-Partner-1.svg" alt="AWS Partner Amazon EMR Delivery"
+                                className="h-[130px] md:h-[140px] lg:h-[150px] w-auto object-contain drop-shadow-lg"
+                                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden'); }}
+                            />
+                            {/* Fallback */}
+                            <div className="hidden h-[130px] md:h-[140px] lg:h-[150px] w-auto min-w-[180px] md:min-w-[200px] bg-white rounded-xl p-5 flex flex-col items-center justify-center shadow-lg border border-gray-100 relative overflow-hidden">
+                                <div className="absolute top-0 left-0 w-1.5 h-full bg-[#232f3e]"></div>
+                                <span className="font-black text-[#232f3e] text-xl tracking-tighter mb-0.5">aws <span className="text-[#ff9900]">partner</span></span>
+                                <div className="h-px w-full bg-gray-200 my-1.5"></div>
+                                <h4 className="text-slate-800 font-bold text-xs uppercase tracking-wider">Amazon EMR</h4>
+                                <p className="text-slate-500 text-xs font-bold tracking-widest uppercase">Delivery</p>
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
 
             {/* TESTIMONIALS */}
             <section className="py-32 bg-background relative overflow-hidden">
-                {/* Decorative background elements */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-600/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-primary-400/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/3 pointer-events-none" />
 
@@ -205,19 +282,16 @@ export default function Home() {
                                 transition={{ delay: i * 0.15 }}
                                 className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col h-full relative"
                             >
-                                {/* Visual quote mark */}
                                 <div className="absolute top-8 right-8 text-primary-100">
                                     <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" />
                                     </svg>
                                 </div>
-
                                 <div className="flex-grow mb-8 relative z-10 pt-4">
                                     <p className="text-gray-600 text-lg leading-relaxed italic relative">
                                         &quot;{testimonial.text}&quot;
                                     </p>
                                 </div>
-
                                 <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between">
                                     <div>
                                         <h4 className="font-bold text-gray-900">{testimonial.author}</h4>
@@ -267,7 +341,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* NEW CTA with Scroll-Linked Scale */}
+            {/* CTA */}
             <section className="py-32 relative overflow-hidden bg-primary-900 perspective-1000">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8, rotateX: 5 }}
@@ -276,9 +350,7 @@ export default function Home() {
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     className="absolute inset-0 z-0 opacity-40 bg-[url('/Artha-redisgn/images/hero-banner.png')] bg-cover bg-center mix-blend-overlay"
                 />
-
                 <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-primary-500/30 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none z-0" />
-
                 <div className="container mx-auto px-6 relative z-10 text-center h-full flex items-center justify-center">
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
