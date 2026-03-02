@@ -1,15 +1,40 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { MapPin, Phone, Mail, Send } from "lucide-react"
+import { MapPin, Phone, Mail, Send, ExternalLink } from "lucide-react"
 
 export default function Contact() {
     const offices = [
-        { city: "Scottsdale, USA (HQ)", address: "10565 N 114th St, Suite# 116, Scottsdale, AZ 85259", phone: "+1 480-933-8904" },
-        { city: "Chicago, USA", address: "1770 Park Street, Suite 101, Naperville, IL 60563", phone: "+1 888-840-0098" },
-        { city: "Hyderabad, India", address: "Plot No: 1-90/2/11/32-35, Survey No 86, Vittal Rao Nagar, Madhapur, Hyderabad 500081", phone: "+91 40-4027-2722" },
-        { city: "Jakarta, Indonesia", address: "18 Office, Jl. TB Simatupang, Jakarta 12430", phone: "+62 21-3971-4455" },
-        { city: "Singapore", address: "61 Robinson Road, #19-02, Singapore 068893", phone: "+65 8323-8737" }
+        {
+            city: "Scottsdale, USA (HQ)",
+            address: "10565 N 114th St, Suite# 116, Scottsdale, AZ 85259",
+            phone: "+1 480-933-8904",
+            mapUrl: "https://maps.google.com/?q=10565+N+114th+St+Suite+116+Scottsdale+AZ+85259"
+        },
+        {
+            city: "Chicago, USA",
+            address: "1770 Park Street, Suite 101, Naperville, IL 60563",
+            phone: "+1 888-840-0098",
+            mapUrl: "https://maps.google.com/?q=1770+Park+Street+Suite+101+Naperville+IL+60563"
+        },
+        {
+            city: "Hyderabad, India",
+            address: "Plot No: 1-90/2/11/32-35, Survey No 86, Vittal Rao Nagar, Madhapur, Hyderabad 500081",
+            phone: "+91 40-4027-2722",
+            mapUrl: "https://maps.google.com/?q=Vittal+Rao+Nagar+Madhapur+Hyderabad+500081"
+        },
+        {
+            city: "Jakarta, Indonesia",
+            address: "18 Office, Jl. TB Simatupang, Jakarta 12430",
+            phone: "+62 21-3971-4455",
+            mapUrl: "https://maps.google.com/?q=18+Office+Jl+TB+Simatupang+Jakarta+12430"
+        },
+        {
+            city: "Singapore",
+            address: "61 Robinson Road, #19-02, Singapore 068893",
+            phone: "+65 8323-8737",
+            mapUrl: "https://maps.google.com/?q=61+Robinson+Road+Singapore+068893"
+        }
     ]
 
     return (
@@ -61,7 +86,7 @@ export default function Contact() {
                         </form>
                     </motion.div>
 
-                    {/* Contact Info (Vast Grid) */}
+                    {/* Contact Info */}
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -77,8 +102,17 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h4 className="text-xl font-bold font-heading mb-2 text-foreground group-hover:text-primary-600 transition-colors">{office.city}</h4>
-                                        <p className="text-foreground/70 mb-2">{office.address}</p>
-                                        <a href={`tel:${office.phone.replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-2 text-sm font-medium text-foreground/50 hover:text-primary-600 transition-colors">
+                                        <a
+                                            href={office.mapUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-foreground/70 mb-2 hover:text-primary-600 hover:underline transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+                                        >
+                                            {office.address}
+                                            <ExternalLink className="w-3.5 h-3.5 flex-shrink-0 opacity-50" />
+                                        </a>
+                                        <br />
+                                        <a href={`tel:${office.phone.replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-2 text-sm font-medium text-foreground/50 hover:text-primary-600 transition-colors mt-1">
                                             <Phone className="w-4 h-4" /> {office.phone}
                                         </a>
                                     </div>
