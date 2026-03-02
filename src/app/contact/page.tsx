@@ -5,11 +5,11 @@ import { MapPin, Phone, Mail, Send } from "lucide-react"
 
 export default function Contact() {
     const offices = [
-        { city: "Scottsdale, USA (HQ)", address: "8825 N 23rd Ave, Suite 100, Phoenix AZ 85021", phone: "+1 480-624-1196" },
-        { city: "Chicago, USA", address: "950 S. Pine St, Suite A, Mt. Prospect, IL 60056", phone: "+1 480-624-1196" },
-        { city: "Hyderabad, India", address: "8th Floor, Tek Meadows, Sholinganallur, OMR, Chennai 600119", phone: "+91 40-2311-5599" },
-        { city: "Jakarta, Indonesia", address: "18Office, Jl. TB Simatupang, Jakarta 12430", phone: "+62 21-5010-1978" },
-        { city: "Singapore", address: "61 Robinson Road, #19-02, Singapore 068893", phone: "+65 3108-0715" }
+        { city: "Scottsdale, USA (HQ)", address: "10565 N 114th St, Suite# 116, Scottsdale, AZ 85259", phone: "+1 480-933-8904" },
+        { city: "Chicago, USA", address: "1770 Park Street, Suite 101, Naperville, IL 60563", phone: "+1 888-840-0098" },
+        { city: "Hyderabad, India", address: "Plot No: 1-90/2/11/32-35, Survey No 86, Vittal Rao Nagar, Madhapur, Hyderabad 500081", phone: "+91 40-4027-2722" },
+        { city: "Jakarta, Indonesia", address: "18 Office, Jl. TB Simatupang, Jakarta 12430", phone: "+62 21-3971-4455" },
+        { city: "Singapore", address: "61 Robinson Road, #19-02, Singapore 068893", phone: "+65 8323-8737" }
     ]
 
     return (
