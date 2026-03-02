@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Shield, Zap, Target, Repeat, Shuffle, Globe } from "lucide-react"
+import { Shield, Zap, Target, Repeat, Shuffle, Globe, Database, CheckCircle, BarChart3, Brain, Settings, Cloud } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -23,9 +23,9 @@ export default function ArthaAdvantage() {
             desc: "Save time and costs with proprietary accelerators for data quality, integration, and governance.",
             icon: Zap,
             items: [
-                { title: "Data Integration", desc: "Seamlessly connect data sources across your enterprise for unified, real-time views." },
-                { title: "Data Quality", desc: "Automated quality checks and data cleansing for trusted, decision-ready data." },
-                { title: "Governance Controls", desc: "Implement GRC, privacy, and data lineage to maintain compliance." }
+                { title: "Data Integration", desc: "Seamlessly connect data sources across your enterprise for unified, real-time views.", icon: Database },
+                { title: "Data Quality", desc: "Automated quality checks and data cleansing for trusted, decision-ready data.", icon: CheckCircle },
+                { title: "Governance Controls", desc: "Implement GRC, privacy, and data lineage to maintain compliance.", icon: Shield }
             ]
         },
         {
@@ -35,9 +35,9 @@ export default function ArthaAdvantage() {
             desc: "Simplify and accelerate data governance with a comprehensive, AI-driven platform.",
             icon: Shield,
             items: [
-                { title: "Regulatory Compliance", desc: "Automates compliance with GDPR, CCPA, HIPAA — improving data quality." },
-                { title: "MDM for Customer 360", desc: "Unifies customer data for a single view, boosting engagement." },
-                { title: "AI-Driven Rule Management", desc: "Automates data validation rules, freeing teams for insights." }
+                { title: "Regulatory Compliance", desc: "Automates compliance with GDPR, CCPA, HIPAA — improving data quality.", icon: Shield },
+                { title: "MDM for Customer 360", desc: "Unifies customer data for a single view, boosting engagement.", icon: Target },
+                { title: "AI-Driven Rule Management", desc: "Automates data validation rules, freeing teams for insights.", icon: Brain }
             ]
         },
         {
@@ -47,16 +47,16 @@ export default function ArthaAdvantage() {
             desc: "An easy-to-use platform to manage critical master data without the complexity of full MDM solutions.",
             icon: Target,
             items: [
-                { title: "Centralize Key Data", desc: "Consolidate customer, product, and vendor data into one truth." },
-                { title: "Data Deduplication", desc: "Identify and merge duplicate records using advanced matching algorithms." },
-                { title: "Rapid Deployment", desc: "Lightweight architecture means lower total cost of ownership." }
+                { title: "Centralize Key Data", desc: "Consolidate customer, product, and vendor data into one truth.", icon: Database },
+                { title: "Data Deduplication", desc: "Identify and merge duplicate records using advanced matching algorithms.", icon: Repeat },
+                { title: "Rapid Deployment", desc: "Lightweight architecture means lower total cost of ownership.", icon: Settings }
             ]
         }
     ]
 
     return (
         <div className="pt-32 pb-24 min-h-screen">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 max-w-7xl">
 
                 <div className="text-center max-w-3xl mx-auto mb-20">
                     <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-6xl font-heading font-black mb-6">
@@ -67,7 +67,7 @@ export default function ArthaAdvantage() {
                     </motion.p>
                 </div>
 
-                <div className="space-y-32">
+                <div className="space-y-20">
                     {sections.map((section, idx) => (
                         <motion.section
                             key={section.id}
@@ -76,20 +76,19 @@ export default function ArthaAdvantage() {
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
                             variants={stagger}
-                            className={`flex flex-col gap-12 ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center`}
                         >
-                            <div className="w-full lg:w-1/3">
-                                <motion.div variants={fadeUp} className="inline-block px-4 py-2 rounded-full bg-primary-50 text-primary-600 font-bold text-xs uppercase tracking-widest mb-6">
+                            <div className="mb-10">
+                                <motion.div variants={fadeUp} className="inline-block px-4 py-2 rounded-full bg-primary-50 text-primary-600 font-bold text-xs uppercase tracking-widest mb-4">
                                     {section.label}
                                 </motion.div>
-                                <motion.h2 variants={fadeUp} className="text-4xl font-heading font-bold mb-6">{section.title}</motion.h2>
-                                <motion.p variants={fadeUp} className="text-lg text-foreground/70 mb-8">{section.desc}</motion.p>
+                                <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-heading font-bold mb-4">{section.title}</motion.h2>
+                                <motion.p variants={fadeUp} className="text-lg text-foreground/70 max-w-2xl">{section.desc}</motion.p>
                             </div>
 
-                            <div className="w-full lg:w-2/3 grid sm:grid-cols-2 gap-6">
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {section.items.map((item, i) => (
-                                    <motion.div variants={fadeUp} key={i} className="glass-card p-8 rounded-3xl hover:border-primary-500/50 transition-colors shadow-sm hover:shadow-xl hover:shadow-primary-600/5">
-                                        <section.icon className="w-10 h-10 text-primary-600 mb-6" />
+                                    <motion.div variants={fadeUp} key={i} className="glass-card p-8 rounded-3xl hover:border-primary-500/50 transition-all shadow-sm hover:shadow-xl hover:shadow-primary-600/5 group">
+                                        <item.icon className="w-10 h-10 text-primary-600 mb-6 group-hover:scale-110 transition-transform" />
                                         <h3 className="text-xl font-bold font-heading mb-3">{item.title}</h3>
                                         <p className="text-foreground/70 leading-relaxed">{item.desc}</p>
                                     </motion.div>
@@ -98,6 +97,21 @@ export default function ArthaAdvantage() {
                         </motion.section>
                     ))}
                 </div>
+
+                {/* CTA Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-20 text-center glass-card p-12 md:p-16 rounded-[3rem] relative overflow-hidden"
+                >
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary-600/5 to-primary-600/10 pointer-events-none" />
+                    <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 relative z-10">Ready to Get Started?</h2>
+                    <p className="text-lg text-foreground/70 mb-8 max-w-xl mx-auto relative z-10">Let us show you how the Artha Advantage platform can transform your data operations.</p>
+                    <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white font-bold rounded-xl hover:bg-primary-700 hover:-translate-y-1 transition-all shadow-xl shadow-primary-600/20 relative z-10">
+                        Contact Us Today
+                    </Link>
+                </motion.div>
 
             </div>
         </div>
