@@ -20,12 +20,7 @@ const staggerContainer = {
     }
 }
 
-const certifications = [
-    {
-        partner: "Qlik",
-        title: "Partner Customer Success Champion",
-        subtitle: "North America 2024",
-        gradient: "from-[#1a5c3a] to-[#2a8c5a]",
+ to-[#2a8c5a]",
         accent: "#4dc78a",
         icon: "ðŸ†"
     },
@@ -167,63 +162,7 @@ export default function Home() {
                 <ClientMarquee />
             </section>
 
-            {/* PARTNER CERTIFICATIONS */}
-            <section className="py-16 md:py-20 bg-[#1a7a6d]">
-                <div className="container mx-auto px-6 max-w-7xl">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">Partner Certifications</h2>
-                        <p className="text-white/70 text-lg">Industry-recognized expertise across leading platforms</p>
-                    </div>
-
-                    {/* Row 1: 5 Qlik badges */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-4">
-                        {certifications.slice(0, 5).map((cert, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.08, duration: 0.5 }}
-                                className={`bg-gradient-to-br ${cert.gradient} rounded-2xl p-5 flex flex-col items-center justify-center text-center min-h-[160px] border border-white/10 shadow-lg hover:scale-[1.03] hover:shadow-xl transition-all duration-300`}
-                            >
-                                <span className="text-3xl mb-2">{cert.icon}</span>
-                                <div className="bg-white/15 backdrop-blur-sm rounded-full px-3 py-0.5 mb-2">
-                                    <span className="text-white text-[11px] font-bold tracking-wide">{cert.partner}</span>
-                                </div>
-                                <h4 className="text-white font-bold text-sm leading-tight mb-1">{cert.title}</h4>
-                                {cert.subtitle && (
-                                    <p className="text-white/60 text-xs font-medium">{cert.subtitle}</p>
-                                )}
-                            </motion.div>
-                        ))}
-                    </div>
-
-                    {/* Row 2: 4 remaining badges */}
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                        {certifications.slice(5).map((cert, i) => (
-                            <motion.div
-                                key={i + 5}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: (i + 5) * 0.08, duration: 0.5 }}
-                                className={`bg-gradient-to-br ${cert.gradient} rounded-2xl p-5 flex flex-col items-center justify-center text-center min-h-[160px] border border-white/10 shadow-lg hover:scale-[1.03] hover:shadow-xl transition-all duration-300`}
-                            >
-                                <span className="text-3xl mb-2">{cert.icon}</span>
-                                <div className="bg-white/15 backdrop-blur-sm rounded-full px-3 py-0.5 mb-2">
-                                    <span className="text-white text-[11px] font-bold tracking-wide">{cert.partner}</span>
-                                </div>
-                                <h4 className="text-white font-bold text-sm leading-tight mb-1">{cert.title}</h4>
-                                {cert.subtitle && (
-                                    <p className="text-white/60 text-xs font-medium">{cert.subtitle}</p>
-                                )}
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* TESTIMONIALS */}
+                  {/* TESTIMONIALS */}
             <section className="py-32 bg-background relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-600/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-primary-400/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/3 pointer-events-none" />
@@ -357,3 +296,4 @@ export default function Home() {
         </div>
     )
 }
+
