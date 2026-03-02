@@ -120,13 +120,8 @@ export default function Home() {
                         {/* Badge 2: Qlik Elite Channel Partner */}
                         <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.1, duration: 0.5 }}
                             className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src="https://www.thinkartha.com/wp-content/uploads/2025/05/Qlik-Elite-Partner.svg" alt="Qlik Elite Channel Partner"
-                                className="h-[130px] md:h-[150px] lg:h-[170px] w-auto object-contain drop-shadow-lg"
-                                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden'); }}
-                            />
-                            {/* Fallback if SVG fails to load */}
-                            <div className="hidden h-[130px] md:h-[150px] lg:h-[170px] w-[120px] md:w-[140px] bg-white rounded-lg border-2 border-[#1a3a5c] p-3 flex flex-col items-center justify-center text-center shadow-lg">
+                            {/* CSS Badge */}
+              <div className=" h-[130px] md:h-[150px] lg:h-[170px] w-[120px] md:w-[140px] bg-white rounded-lg border-2 border-[#1a3a5c] p-3 flex flex-col items-center justify-center text-center shadow-lg">
                                 <div className="text-xs font-bold text-[#1a3a5c] border-b border-[#1a3a5c] pb-1 mb-2 w-full">Qlik Partner</div>
                                 <div className="text-xl font-black text-[#1a3a5c] mb-1">Elite</div>
                                 <div className="bg-[#169B62] text-white text-[10px] font-bold px-3 py-1 rounded">Channel Partner</div>
@@ -180,13 +175,8 @@ export default function Home() {
                         {/* Badge 7: Talend Data Governance Expert Partner */}
                         <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.6, duration: 0.5 }}
                             className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src="https://www.thinkartha.com/wp-content/uploads/2025/05/Talend-Data-Governance.svg" alt="Talend Data Governance Expert Partner"
-                                className="h-[140px] md:h-[160px] lg:h-[170px] w-auto object-contain drop-shadow-lg"
-                                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden'); }}
-                            />
-                            {/* Fallback */}
-                            <div className="hidden h-[140px] md:h-[160px] lg:h-[170px] w-[130px] md:w-[145px] lg:w-[155px] bg-gradient-to-br from-[#c85a7c] to-[#4a1942] rounded-[2rem] p-4 flex flex-col items-center justify-center text-center shadow-lg border border-white/10">
+                            {/* CSS Badge */}
+              <div className=" h-[140px] md:h-[160px] lg:h-[170px] w-[130px] md:w-[145px] lg:w-[155px] bg-gradient-to-br from-[#c85a7c] to-[#4a1942] rounded-[2rem] p-4 flex flex-col items-center justify-center text-center shadow-lg border border-white/10">
                                 <div className="w-10 h-10 rounded-full bg-[#e8735a] flex items-center justify-center mb-2 shadow">
                                     <span className="text-white font-bold text-[10px]">talend</span>
                                 </div>
@@ -221,13 +211,8 @@ export default function Home() {
                         {/* Badge 9: AWS Partner Amazon EMR Delivery */}
                         <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.8, duration: 0.5 }}
                             className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src="https://www.thinkartha.com/wp-content/uploads/2025/05/AWS-Partner-1.svg" alt="AWS Partner Amazon EMR Delivery"
-                                className="h-[130px] md:h-[140px] lg:h-[150px] w-auto object-contain drop-shadow-lg"
-                                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden'); }}
-                            />
-                            {/* Fallback */}
-                            <div className="hidden h-[130px] md:h-[140px] lg:h-[150px] w-auto min-w-[180px] md:min-w-[200px] bg-white rounded-xl p-5 flex flex-col items-center justify-center shadow-lg border border-gray-100 relative overflow-hidden">
+                            {/* CSS Badge */}
+              <div className=" h-[130px] md:h-[140px] lg:h-[150px] w-auto min-w-[180px] md:min-w-[200px] bg-white rounded-xl p-5 flex flex-col items-center justify-center shadow-lg border border-gray-100 relative overflow-hidden">
                                 <div className="absolute top-0 left-0 w-1.5 h-full bg-[#232f3e]"></div>
                                 <span className="font-black text-[#232f3e] text-xl tracking-tighter mb-0.5">aws <span className="text-[#ff9900]">partner</span></span>
                                 <div className="h-px w-full bg-gray-200 my-1.5"></div>
